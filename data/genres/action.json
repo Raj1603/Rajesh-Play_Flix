@@ -1,0 +1,44 @@
+[{"id": 1,
+"title": "Mad Max: Fury Road",
+"director": "George Miller",
+"poster": "https://c4.wallpaperflare.com/wallpaper/768/781/199/mad-max-fury-road-movies-car-mad-max-wallpaper-preview.jpg",
+"videolink": "https://youtu.be/hEJnMQG9ev8",
+"description": "A post-apocalyptic action thriller featuring high-octane chases.",
+"duration": "2h"
+},
+{
+"id": 2,
+"title": "John Wick",
+"director": "Chad Stahelski",
+"poster": "https://rukminim2.flixcart.com/image/850/1000/k8xduvk0/poster/j/m/z/medium-the-dark-knight-poster-decorative-wall-poster-wall-d-cor-original-imafqu8euacqngyh.jpeg?q=90&crop=false",
+"videolink": "https://youtu.be/2AUmvWm5ZDQ",
+"description": "A retired hitman seeks vengeance after his dog is killed.",
+"duration": "1h 41m"
+},
+{
+"id": 3,
+"title": "The Dark Knight",
+"director": "Christopher Nolan",
+"poster": "https://rukminim2.flixcart.com/image/850/1000/kzzw5u80/poster/o/g/b/large-dark-knight-joker-quote-movie-poster-print-poster-on-large-original-imagbvmyqpzhgqyz.jpeg?q=20&crop=false",
+"videolink": "https://youtu.be/EXeTwQWrcwY",
+"description": "Batman faces off against the Joker in a battle for Gotham.",
+"duration": "2h 32m"
+},
+{
+"id": 4,
+"title": "Die Hard",
+"director": "John McTiernan",
+"poster": "https://image.tmdb.org/t/p/original/9hkZYoHF9NEDznI40eLukp7nfyr.jpg",
+"videolink": "https://youtu.be/gYWvwkXreaI",
+"description": "A New York cop battles terrorists in a Los Angeles skyscraper.",
+"duration": "2h 12m"
+},
+{
+"id": 5,
+"title": "Gladiator",
+"director": "Ridley Scott",
+"poster": "https://static.displate.com/857x1200/displate/2019-03-05/3aec87b7a6fe397484c598bd091f9d7f_836bccaf66e0a4b08935a1d40c8de8a2.jpg",
+"videolink": "https://youtu.be/owK1qxDselE",
+"description": "A betrayed Roman general seeks revenge as a gladiator.",
+"duration": "2h 35m"
+} ]

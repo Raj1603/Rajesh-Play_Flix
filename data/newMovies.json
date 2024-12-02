@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "title": "Beyond the Stars",
+    "releaseDate": "2023-12-01",
+    "genre": ["Sci-Fi", "Adventure", "Drama"],
+    "description": "An astronaut ventures into deep space to uncover the mysteries of a dying galaxy.",
+    "videolink": "https://videos.pexels.com/video-files/3195394/3195394-sd_640_360_25fps.mp4",
+    "poster": "https://wallpapercat.com/w/full/9/4/4/2081243-1920x1080-desktop-full-hd-star-trek-beyond-2016-wallpaper-image.jpg"
+  },
+  {
+    "id": 2,
+    "title": "The Last Emperor",
+    "releaseDate": "2023-12-08",
+    "genre": ["Drama", "History", "War"],
+    "description": "A gripping tale of the final days of an empire on the brink of collapse.",
+    "videolink": "https://videos.pexels.com/video-files/3195394/3195394-sd_640_360_25fps.mp4",
+    "poster": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/192/2023/05/04114547/7TILJhdeJAaEyDiwvJZMo9SQBoe.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Eclipse of Destiny",
+    "releaseDate": "2023-11-29",
+    "genre": ["Action", "Fantasy", "Thriller"],
+    "description": "A warrior must prevent an ancient prophecy from plunging the world into darkness.",
+    "videolink": "https://videos.pexels.com/video-files/3195394/3195394-sd_640_360_25fps.mp4",
+    "poster": "https://img.wattpad.com/cover/372982091-256-k276770.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Starlight Symphony",
+    "releaseDate": "2023-12-15",
+    "genre": ["Animation", "Fantasy", "Musical"],
+    "description": "An orphaned musician discovers a magical world through her enchanted violin.",
+    "videolink": "https://videos.pexels.com/video-files/3195394/3195394-sd_640_360_25fps.mp4",
+    "poster": "https://i.ytimg.com/vi/T6pIJvnWrAI/maxresdefault.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Chronicles of the Forgotten",
+    "releaseDate": "2023-10-30",
+    "genre": ["Adventure", "Drama", "Mystery"],
+    "description": "A young historian uncovers the truth behind a series of forgotten legends.",
+    "videolink": "https://videos.pexels.com/video-files/3195394/3195394-sd_640_360_25fps.mp4",
+    "poster": "https://m.media-amazon.com/images/I/61zZ544-d9L._AC_UF1000,1000_QL80_.jpg"
+  }
+
+]

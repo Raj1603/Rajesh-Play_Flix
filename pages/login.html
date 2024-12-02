@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script type="module" defer src="../scripts/firebaseauth.js"></script>
+</head>
+<body>
+    <!-- Sign-Up Form -->
+    <div class="container" id="signup" style="display:none">
+        <h1 class="form-title">Register</h1>
+        <form id="signUpForm">
+            <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+            
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text"   id="fName" placeholder="First Name" required>
+                <label for="fname">First Name</label>
+                <span  id="fNameError" ></span>
+                
+                
+            </div>
+            
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="lName" placeholder="Last Name" required>
+                <label for="lName">Last Name</label>
+                <span   id="lNameError" ></span>
+                
+            </div>
+            
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="rEmail" placeholder="Email" required>
+                <label    for="rEmail">Email</label>
+                <span   id="emailError" ></span>
+
+                
+            </div>
+            
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="rPassword" placeholder="Password" required>
+                <label   for="rPassword">Password</label>
+                <span    id="passwordError" ></span>
+                
+            </div>
+            
+            <button class="btn" id="submitSignUp">Sign Up</button>
+        </form>
+        
+        <div class="links">
+            <p>Already Have Account?</p>
+            <button id="signInButton">Sign In</button>
+        </div>
+    </div>
+
+    <!-- Sign-In Form -->
+    <div class="container" id="signIn">
+        <h1 class="form-title">Sign In</h1>
+        <form id="signInForm">
+            <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+            
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email" required>
+                <label   for="email">Email</label>
+                <span id="signInEmailError" ></span>
+                
+                
+            </div>
+            
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+                <label  for="password">Password</label>
+                <span id="signInPasswordError" ></span>
+                
+            </div>
+            
+            <button class="btn" id="submitSignIn">Sign In</button>
+        </form>
+        
+        <div class="links">
+            <p>Don't have an account yet?</p>
+            <button id="signUpButton">Sign Up</button>
+        </div>
+    </div>
+
+    <!-- Script to toggle between Sign-Up and Sign-In forms -->
+    <script>
+        const signUpButton = document.getElementById('signUpButton');
+        const signInButton = document.getElementById('signInButton');
+        const signInForm = document.getElementById('signIn');
+        const signUpForm = document.getElementById('signup');
+        
+        signUpButton.addEventListener('click', () => {
+            signInForm.style.display = "none";
+            signUpForm.style.display = "block";
+            clearErrorMessages();
+        });
+        
+        signInButton.addEventListener('click', () => {
+            signInForm.style.display = "block";
+            signUpForm.style.display = "none";
+            clearErrorMessages();
+        });
+    </script>
+</body>
+</html>

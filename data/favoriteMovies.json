@@ -1,0 +1,97 @@
+
+[
+    {
+      "id": 1,
+      "title": "Oppenheimer",
+      "releaseYear": 2023,
+      "genre": "Drama, Historical",
+      "description": "A biographical drama about J. Robert Oppenheimer and the creation of the atomic bomb.",
+      "videolink": "https://cdn.api.video/vod/vi1FBKkaYe5Y2L9wNbGDYztl/mp4/720/source.mp4?dl=1&_gl=1*dv8ghc*_gcl_au*OTQxNTIxMTAuMTczMjc1NDA4Mg..*_ga*NjAwNjA1NjQ2LjE3MzI3NTQwODM.*_ga_PSYKRMEWL4*MTczMjc1NDA4Mi4xLjAuMTczMjc1NDA4Mi4wLjAuMA..",
+      "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkwKkeMeSkmAR1YwgP9wyDZc9ZxOVeiAU71Q&s"
+
+    },
+    {
+      "id": 2,
+      "title": "Barbie",
+      "releaseYear": 2023,
+      "genre": "Comedy, Fantasy",
+      "description": "A comedic and fantastical story of Barbie navigating the real world.",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEzQ9MblXC9vOyYry7t50G-osLFEUTATre0w&s"
+      
+    },
+    {
+      "id": 3,
+      "title": "Mission: Impossible - Dead Reckoning Part One",
+      "releaseYear": 2023,
+      "genre": "Action, Thriller",
+      "description": "Ethan Hunt and his team face their most dangerous mission yet.",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "poster": "https://w0.peakpx.com/wallpaper/82/864/HD-wallpaper-mission-impossible-dead-reckoning-part-one-train-crash-mission-impossible-dead-reckoning-part-one-mission-impossible-tom-cruise-2023-movies-movies.jpg"
+      
+
+    },
+    {
+      "id": 4,
+      "title": "The Marvels",
+      "releaseYear": 2023,
+      "genre": "Action, Adventure, Sci-Fi",
+      "description": "Captain Marvel, Ms. Marvel, and Monica Rambeau team up to save the universe.",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "poster": "https://wallpapers.com/images/hd/marvel-4k-phone-lfxixbw1q571cw3i.jpg"
+    },
+    {
+      "id": 5,
+      "title": "John Wick: Chapter 4",
+      "releaseYear": 2023,
+      "genre": "Action, Thriller",
+      "description": "John Wick uncovers a path to defeating The High Table, but it comes at great cost.",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "poster": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6aec1a106199299.5f8a325998dca.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Dune: Part Two",
+      "releaseYear": 2023,
+      "genre": "Adventure, Drama, Sci-Fi",
+      "description": "Paul Atreides unites the Fremen while seeking revenge against the conspirators.",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "poster": "https://wallpapersmug.com/download/1440x2560/8e54e9/dune-part-2-poster.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Spider-Man: Across the Spider-Verse",
+      "releaseYear": 2023,
+      "genre": "Animation, Action, Adventure",
+      "description": "Miles Morales embarks on an epic adventure across multiple universes of Spider-People.",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "poster": "https://i.redd.it/adxst7fxaswa1.jpg"
+    },
+    {
+      "id": 8,
+      "title": "The Super Mario Bros. Movie",
+      "releaseYear": 2023,
+      "genre": "Animation, Adventure, Comedy",
+      "description": "Mario and Luigi team up to save the Mushroom Kingdom in this animated adaptation.",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "poster": "https://www.universalpictures.com.au/tl_files/content/movies/super_mario_bros/posters/03.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Guardians of the Galaxy Vol. 3",
+      "releaseYear": 2023,
+      "genre": "Action, Adventure, Sci-Fi",
+      "description": "The Guardians face their toughest challenge yet as they protect the galaxy once more.",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "poster": "https://assets-prd.ignimgs.com/2023/02/13/guardians-of-the-galaxy-vol-three-newbutton-1676306275720.jpg"
+    },
+    {
+      "id": 10,
+      "title": "The Equalizer 3",
+      "releaseYear": 2023,
+      "genre": "Action, Crime, Thriller",
+      "description": "Robert McCall takes on new enemies while protecting his community.",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "poster": "https://www.filmihulluleffakauppa.com/35208-large_default/the-equalizer-3-2023-dvd.jpg"
+    }
+  ]

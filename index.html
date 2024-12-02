@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAY FLIX</title>
+    <link rel="stylesheet" href="./styles/discovery.css">     
+    
+        <!-- FONT AWESOME JAVASCRIPT -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- admin js -->
+    <script type="module" src="./scripts/admin.js"></script>  
+
+    <!-- MOVIESLIST JAVASCRIPT -->
+    <script type="module" src="./scripts/movie.js"></script> 
+    <script type="module" src="./scripts/genre.js"></script>   
+        <!-- search bar JAVASCRIPT -->
+    <script type="module" src="./scripts/searchAndfilter.js"></script>     
+
+<!-- VIDEO.JS -->
+    
+    <!-- <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" /> -->
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet">
+
+    <!-- Demo styles -->
+  <style>
+   
+  </style>
+</head>
+<body>
+ 
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fa-solid fa-clapperboard"></i> PLAY FLIX</a>
+        <!-- <div class="hamburger">
+          <i class="fa-solid fa-bars"></i></div> -->
+      
+        <ul class="Navbar">
+            <li><a href="#" class="home-active">HOME</a></li>
+
+            <li><a href="#genre">GENRES</a></li>
+            <li><a href="#favorite">TOP RATED</a></li>
+            <li><a href="#newRelease">NEW RELEASED</a></li>
+        </ul>
+        <div class="search-bar">
+              <input id="search-input" type="text" placeholder="Search for movies...">
+              <button id="search-button">🔍</button> <!-- Default icon as a search icon -->
+      </div>
+        <div class="profile">
+          <a id="logout">LOGOUT</a> 
+            <a href="./pages/login.html" target="_self" id="login">Login</a>
+            <i id="icon" class="fa-regular fa-user"></i>
+            <div id="users"> </div>
+        </div>
+    </header>
+    <div id="display" style="display: none;">
+      <h1>Movie Search Results</h1>
+      <div id="result-container">
+        <div class="Card" id="results"></div>
+      </div> 
+      <div id="video-container" ></div>
+      </div> 
+    <!-- Swiper Carousel -->
+    <section class="swiper">
+        <div id="movies" class="swiper-wrapper">
+           
+           
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </section>
+
+    <section id="catogery">
+      <h1>CATEGORIES</h1>
+      <div id="genre"  id="genreRes"  class="genre">
+        <h3>GENRES</h3>
+        <div class="genre-list">
+          <div class="genre-item">
+            <div class="image-container">
+              <img src="./assets/images/action.jpg" alt="Action" /> 
+              <div class="image-description">
+              
+               
+                <a href="#"  class="btn explore-button" >Explore more>></a>
+              </div>
+            </div>
+            <h2>Action</h2>
+          </div>
+          <!-- Section for dynamically added items -->
+        <div class="expanded-items hidden  "  >
+          <!-- <div class="movie-item"></div> -->
+          
+        </div>
+          
+          <div class="genre-item">
+            <div class="image-container">
+              <img src="./assets/images/drama.jpg" alt="Comedy" />
+              <div class="image-description">
+  
+                <a href="#"class="btn explore-button" >Explore more>></a>
+              </div>
+            </div>
+            <h2>Comedy</h2>
+          </div>
+            <!-- Section for dynamically added items -->
+        <div class="expanded-items hidden "  id="comedy-container">
+         
+      </div>
+        
+
+            
+            <div class="genre-item">
+              <div class="image-container">
+                <img src="./assets/images/thriller.jpg" alt="Drama" />
+                <div class="image-description">
+   
+                  <a href="#"  class="btn explore-button">Explore more>></a>
+                </div>
+              </div>
+                <h2>Drama</h2>
+            </div>
+              <!-- Section for dynamically added items -->
+        <div class="expanded-items hidden" id="drama-container">
+          
+      </div>
+            <!-- <div class="genre-item">
+              <div class="image-container">
+                <img src="../assets/images/thriller.jpg" alt="Horror" />
+                <div class="image-description">
+                  <p>This is the description that appears when you hover over the image.</p>
+                  <a href="#"  class="btn explore-button">Explore more>></a>
+                </div>
+              </div>
+                <h2>Horror</h2>
+            </div>
+                  
+        <div class="expanded-items hidden" id="expandedItems">
+          <div class="item">Item 1</div>
+       
+      </div>
+            <div class="genre-item">
+              <div class="image-container">
+                <img src="../assets/images/action.jpg" alt="Science Fiction" />
+                <div class="image-description">
+                  <p>This is the description that appears when you hover over the image.</p>
+                  <a href="#" class="btn explore-button">Explore more>></a>
+                </div>
+              </div>
+                <h2>Science Fiction</h2>
+            </div>
+                  
+        <div class="expanded-items hidden" id="expandedItems">
+          <div class="item">Item 1</div>
+          
+      </div>
+            <div class="genre-item">
+              <div class="image-container">
+                <img src="../assets/images/thriller.jpg" alt="Thriller" />
+                <div class="image-description">
+                  <p>This is the description that appears when you hover over the image.</p>
+                  <a href="#"  class="btn explore-button">Explore more>></a>
+                </div>
+
+              </div>
+                <h2>Thriller</h2>
+            </div>
+                  
+        <div class="expanded-items hidden" id="expandedItems">
+          <div class="item">Item 1</div>
+         
+      </div>
+            <div class="genre-item">
+                
+                <div class="image-container">
+                  <img src=" ../assets/images/horror.jpg" alt="Thriller" />
+                  <div class="image-description">
+                    <p>This is the description that appears when you hover over the image.</p>
+                    <a href="#"  class="btn explore-button">Explore more>></a>
+                  </div>
+  
+                </div>
+                <h2>Fantasy</h4>
+
+            </div>
+                  
+        <div class="expanded-items hidden" id="expandedItems">
+          <div class="item">Item 1</div>
+          
+      </div> -->
+        </div>
+    </div>
+
+    
+    
+      <div id="favorite"> 
+        <h3>TOP RATED MOVIES</h3>
+        <div id="movies-list" class="favorite-list" ></div>
+         <!-- id for fetching    class  for style-->
+      
+      </div>
+      <div></div>
+      
+      <div id="newRelease">
+        <h3>NEW RELEASED</h3>
+        <div id="newReleasedmovies-list" class="newReleased-list" ></div>
+      
+
+      </div>  
+    </section>
+<footer>
+  
+    <p>&#169; PLAY FLIX   ALL RIGHTS ARE RESERVED.</p>
+    
+      <p>PRIVACY</p>
+      <p>TERMS</p>
+      <p>HELPS</p>
+      <p>DEVICES</p>
+    
+   <div>
+    <!-- Youtube -->
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="youtube-icon">
+      <i class="fab fa-youtube"></i>
+    </a>
+       <!-- Twitter -->
+       <a href="https://twitter.com/YourProfile" target="_blank" class="twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+  
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/YourPage" target="_blank" class="facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+  
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/YourProfile" target="_blank" class="instagram">
+        <i class="fab fa-instagram"></i>
+      </a> </div>
+
+ 
+</footer>
+<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+    
+
+        const swiper = new Swiper('.swiper', {
+            loop:false,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+
+
+    </script>
+</body>
+</html>
