@@ -47,7 +47,7 @@ function clearErrorMessages() {
 function validateSignUp(email, password, firstName, lastName) {
     clearErrorMessages();
     const namePattern = /^[A-Za-z]+$/;
-    const emailPattern = /^[^\s@]+@[a-zA-Z][^\s@]*\.[^\s@]+$/;
+    const emailPattern =   /^[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;   
 
     const passwordPattern = /^(?=(.*[a-z]))(?=(.*[A-Z]))(?=(.*\d))(?=(.*[@$!%*?&#]))[A-Za-z\d@$!%*?&#]/;
    
@@ -150,14 +150,14 @@ document.getElementById("submitSignUp").addEventListener("click", (event) => {
             const user = userCredential.user;
             const userData = { email : email,Username: userName};
             showMessage("Account Created Successfully", "signUpMessage");
-            localStorage.setItem("loggedInUserId", user.uid);
-            window.location.href = "../index.html";
+            // window.location.href = "../index.html";
             console.log(userData);
             const docRef = doc(db, "users", user.uid);
             setDoc(docRef, userData)
                 .then(() => {
-     
-                    window.location.href = "../discovery.html";
+                    localStorage.setItem("loggedInUserId", user.uid);
+
+                    window.location.href = "../index.html";
                 })
                 .catch((error) => {
                     console.error("Error writing document:", error);

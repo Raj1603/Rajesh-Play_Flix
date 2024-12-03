@@ -19,7 +19,7 @@ const db = getFirestore(app);
 
 // **Dynamic Search Movies Function**
 async function searchMovies(searchQuery) {
-    const collectionsToSearch = ["newMovies", "favoriteMovies","genresDrama","genresAction","genresComedy"];
+    const collectionsToSearch = ["movies","newMovies", "favoriteMovies","genresDrama","genresAction","genresComedy"];
     const results = [];
 
     for (const collectionName of collectionsToSearch) {

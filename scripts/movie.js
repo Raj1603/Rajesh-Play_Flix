@@ -20,18 +20,72 @@ console.log(loggedInUserId);
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 
-  const db1 = getFirestore(app);
+  
+//******************************* CAROUSEL MOVIES ************************* */
 
 
+// *************** Upload Movies to Firestore ****************************
+const db = getFirestore(app);
+
+const collectionRef = collection(db, "movies");
+
+function uploadMoviesFromJSON() {
+  fetch('../data/movies.json')
+    .then((response) => response.json())
+    .then((moviesData) => {
+      moviesData.forEach(async (movie) => {
+        try {
+          await setDoc(doc(collectionRef, movie.id.toString()), movie);
+          console.log(` CAROUSEL MOVIES : ${movie.title}`);
+        } catch (error) {
+          console.error("Error uploading movie:", error);
+        }
+      });
+    })
+    .catch((error) => console.error("Error loading JSON file:", error));
+}
+
+uploadMoviesFromJSON();
+
+// *************** Fetch and Display Movies ****************************
+function fetchAndDisplayMovies() {
+  const videoContainer = document.getElementById("movies");
+  let htmlContent = "";
+
+  getDocs(collectionRef)
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const movie = doc.data();
+
+        htmlContent += `
+          <div class="swiper-slide">
+            <img src="${movie.poster}" alt="${movie.title} poster">
+            <div class="movie-details">
+              <h2 class="view"><span>Movie:</span> ${movie.title}</h2>
+              <p class="hide"><span>Description:</span> ${movie.description}</p>
+              ${
+                loggedInUserId
+                  ? `<a href='/pages/movie-details.html?id=${movie.id}'" class="btn" data-videolink="${movie.videolink}" data-poster="${movie.poster}">Watch Now</a>`
+                  : `<a href="${movie.videolink}" target="_self">Watch Trailer</a>`
+              }
+            </div>
+          </div>`;
+      });
+
+      videoContainer.innerHTML = htmlContent;
+    })
+    .catch((error) => {
+      console.error("Error fetching movies:", error);
+      videoContainer.innerHTML = "<p>Error loading movies. Please try again later.</p>";
+    });
+}
+
+fetchAndDisplayMovies();
+
+//***********************************FAVORITE MOVIES******************** */
 
 
-
-
-
-
-
-//************************************FAVORITE MOVIES******************** */
-
+const db1 = getFirestore(app);
 
 const collectionRef1 = collection(db1, "favoriteMovies");
 
@@ -95,11 +149,7 @@ function fetchAndDisplayfavoriteMovies() {
 fetchAndDisplayfavoriteMovies();
 
 
-//************************************FAVORITE MOVIES******************** */
-
-
-
-// ***********************************************************************NEW RELEASED MOVIES**************
+// *****************************NEW RELEASED MOVIES**************
 
 
 const db2 = getFirestore(app);
@@ -170,64 +220,64 @@ function fetchAndDisplayNewMovies() {
     });
 }
 
-// Function to dynamically create and display the video player
-function playVideo(videoLink, posterImage = "") {
-  const videoContainer = document.getElementById("video-container");
+// // Function to dynamically create and display the video player
+// function playVideo(videoLink, posterImage = "") {
+//   const videoContainer = document.getElementById("video-container");
 
    
      
-  // Validate the video link
-  if (!videoLink) {
-    console.error("Video link is missing or invalid.");
-    videoContainer.innerHTML = `<p>Video source unavailable.</p>`;
-    return;
-  }
+//   // Validate the video link
+//   if (!videoLink) {
+//     console.error("Video link is missing or invalid.");
+//     videoContainer.innerHTML = `<p>Video source unavailable.</p>`;
+//     return;
+//   }
    
 
-  // Generate the video player
-  videoContainer.innerHTML = `
-    <video
-      id="my-video"
-      class="video-js"
-      controls
-      preload="auto"
-      width="640"
-      height="360"
-      ${posterImage ? `poster="${posterImage}"` : ""}
-      data-setup="{}"
-    >
-      <source src="${videoLink}" type="video/mp4" />
-      <p class="vjs-no-js">
-        To view this video please enable JavaScript, and consider upgrading to a
-        web browser that
-        <a href="https://videojs.com/html5-video-support/" target="_blank">
-          supports HTML5 video
-        </a>.
-      </p>
-    </video>
-  `;
-}
+//   // Generate the video player
+//   videoContainer.innerHTML = `
+//     <video
+//       id="my-video"
+//       class="video-js"
+//       controls
+//       preload="auto"
+//       width="640"
+//       height="360"
+//       ${posterImage ? `poster="${posterImage}"` : ""}
+//       data-setup="{}"
+//     >
+//       <source src="${videoLink}" type="video/mp4" />
+//       <p class="vjs-no-js">
+//         To view this video please enable JavaScript, and consider upgrading to a
+//         web browser that
+//         <a href="https://videojs.com/html5-video-support/" target="_blank">
+//           supports HTML5 video
+//         </a>.
+//       </p>
+//     </video>
+//   `;
+// }
 
-// Attach event listeners to "Watch Now" buttons
-addEventListenersToButtons();
+// // Attach event listeners to "Watch Now" buttons
+// addEventListenersToButtons();
 
-// Function to add event listeners to "Watch Now" buttons
-function addEventListenersToButtons() {
-  const buttons = document.querySelectorAll(".btn");
+// // Function to add event listeners to "Watch Now" buttons
+// function addEventListenersToButtons() {
+//   const buttons = document.querySelectorAll(".btn");
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.preventDefault(); // Prevent anchor tag default action
+//   buttons.forEach((button) => {
+//     button.addEventListener("click", (event) => {
+//       event.preventDefault(); // Prevent anchor tag default action
 
-      // Get video link and optional poster image from data attributes
-      const videoLink = button.getAttribute("data-videolink");
-      const posterImage = button.getAttribute("data-poster");
+//       // Get video link and optional poster image from data attributes
+//       const videoLink = button.getAttribute("data-videolink");
+//       const posterImage = button.getAttribute("data-poster");
 
-      // Play the video
-      playVideo(videoLink, posterImage);
-    });
-  });
-}
+//       // Play the video
+//       playVideo(videoLink, posterImage);
+//     });
+//   });
+// }
 
 
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details</title>
+  <style>
+    .movie-details {
+      text-align: center;
+    }
+    .movie-details img {
+      width: 300px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="movie-details" class="movie-details">
+    <!-- Movie details will be populated here by JavaScript -->
+  </div>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"></script>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCEximerMkuSZVNY_WlHioJelJCiV48okY",
+      authDomain: "movies-list-934e9.firebaseapp.com",
+      projectId: "movies-list-934e9",
+      storageBucket: "movies-list-934e9.firebasestorage.app",
+      messagingSenderId: "68089362700",
+      appId: "1:68089362700:web:f3758978116a32c31b3129"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(app);
+
+    // Get movie ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieId = urlParams.get('id');
+
+    // Fetch movie data from Firestore by ID
+    db.collection("movies").doc(movieId).get()
+      .then((doc) => {
+        if (doc.exists) {
+          const movie = doc.data();
+
+          // Display the movie details
+          const movieDetailsDiv = document.getElementById('movie-details');
+          movieDetailsDiv.innerHTML = `
+            <h1>${movie.title}</h1>
+            <img src="${movie.poster}" alt="${movie.title}">
+            <p><strong>Director:</strong> ${movie.director}</p>
+            <p><strong>Description:</strong> ${movie.description}</p>
+            <p><strong>Duration:</strong> ${movie.duration}</p>
+            <a href="${movie.videolink}" target="_blank">Watch Trailer</a>
+          `;
+        } else {
+          document.getElementById('movie-details').innerHTML = '<p>Movie not found</p>';
+        }
+      })
+      .catch((error) => {
+        console.error("Error getting movie document: ", error);
+        document.getElementById('movie-details').innerHTML = '<p>Error loading movie details. Please try again later.</p>';
+      });
+  </script>
+</body>
+</html>
+

@@ -1,11 +1,7 @@
 // *************** Initialize Firebase ****************************
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { 
-  getFirestore, setDoc, doc, collection, getDocs, getDoc 
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import { 
-  getAuth, onAuthStateChanged, signOut 
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getFirestore,  doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import {  getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { loggedInUserId } from "./movie.js";
 
 // Firebase Configuration
@@ -42,7 +38,7 @@ onAuthStateChanged(auth, async (user) => {
       } else {
         console.warn("No such document found for the user!");
         userDetails.innerHTML = `
-          <h3 class="userName">Welcome, Guest</h3>`;
+          <h3 class="userName"> Guest user</h3>`;
       }
     } catch (error) {
       console.error("Error retrieving user data:", error);
@@ -78,58 +74,3 @@ onAuthStateChanged(auth, async (user) => {
   });
 });
 
-// *************** Upload Movies to Firestore ****************************
-const collectionRef = collection(db, "movies");
-
-function uploadMoviesFromJSON() {
-  fetch('../data/movies.json')
-    .then((response) => response.json())
-    .then((moviesData) => {
-      moviesData.forEach(async (movie) => {
-        try {
-          await setDoc(doc(collectionRef, movie.id.toString()), movie);
-          console.log(`Movie Uploaded: ${movie.title}`);
-        } catch (error) {
-          console.error("Error uploading movie:", error);
-        }
-      });
-    })
-    .catch((error) => console.error("Error loading JSON file:", error));
-}
-
-uploadMoviesFromJSON();
-
-// *************** Fetch and Display Movies ****************************
-function fetchAndDisplayMovies() {
-  const videoContainer = document.getElementById("movies");
-  let htmlContent = "";
-
-  getDocs(collectionRef)
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const movie = doc.data();
-
-        htmlContent += `
-          <div class="swiper-slide">
-            <img src="${movie.poster}" alt="${movie.title} poster">
-            <div class="movie-details">
-              <h2 class="view"><span>Movie:</span> ${movie.title}</h2>
-              <p class="hide"><span>Description:</span> ${movie.description}</p>
-              ${
-                loggedInUserId
-                  ? `<a href="#" class="btn" data-videolink="${movie.videolink}" data-poster="${movie.poster}">Watch Now</a>`
-                  : `<a href="${movie.videolink}" target="_self">Watch Trailer</a>`
-              }
-            </div>
-          </div>`;
-      });
-
-      videoContainer.innerHTML = htmlContent;
-    })
-    .catch((error) => {
-      console.error("Error fetching movies:", error);
-      videoContainer.innerHTML = "<p>Error loading movies. Please try again later.</p>";
-    });
-}
-
-fetchAndDisplayMovies();

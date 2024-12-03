@@ -14,13 +14,13 @@
       <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <!-- admin js -->
-    <script type="module" src="./scripts/admin.js"></script>  
+    <script  type="module" src="./scripts/admin.js"></script>  
 
     <!-- MOVIESLIST JAVASCRIPT -->
-    <script type="module" src="./scripts/movie.js"></script> 
-    <script type="module" src="./scripts/genre.js"></script>   
+    <script  type="module" src="./scripts/movie.js"></script> 
+    <script  type="module" src="./scripts/genre.js"></script>   
         <!-- search bar JAVASCRIPT -->
-    <script type="module" src="./scripts/searchAndfilter.js"></script>     
+    <script  type="module" src="./scripts/searchAndfilter.js"></script>     
 
 <!-- VIDEO.JS -->
     
@@ -32,8 +32,8 @@
    
   </style>
 </head>
+
 <body>
- 
     <!-- Navbar -->
     <header>
         <a href="#" class="logo">
@@ -64,7 +64,7 @@
       <div id="result-container">
         <div class="Card" id="results"></div>
       </div> 
-      <div id="video-container" ></div>
+      <!-- <div id="video-container" ></div> -->
       </div> 
     <!-- Swiper Carousel -->
     <section class="swiper">
@@ -225,49 +225,49 @@
     
    <div>
     <!-- Youtube -->
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="youtube-icon">
+    <a href="https://www.youtube.com/account" target="_blank" class="youtube-icon">
       <i class="fab fa-youtube"></i>
     </a>
        <!-- Twitter -->
-       <a href="https://twitter.com/YourProfile" target="_blank" class="twitter">
+       <a href="https://x.com/" target="_blank" class="twitter">
         <i class="fab fa-twitter"></i>
       </a>
   
       <!-- Facebook -->
-      <a href="https://www.facebook.com/YourPage" target="_blank" class="facebook">
+      <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F" target="_blank" class="facebook">
         <i class="fab fa-facebook"></i>
       </a>
   
       <!-- Instagram -->
-      <a href="https://www.instagram.com/YourProfile" target="_blank" class="instagram">
+      <a href="https://www.instagram.com" target="_blank" class="instagram">
         <i class="fab fa-instagram"></i>
       </a> </div>
 
  
 </footer>
 <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script>
-    
-
-        const swiper = new Swiper('.swiper', {
-            loop:false,
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
 
 
+    const swiper = new Swiper('.swiper', {
+        loop:false,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+</script>
+  
 
-    </script>
 </body>
+
 </html>
