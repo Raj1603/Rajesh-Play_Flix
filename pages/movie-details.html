@@ -4,68 +4,122 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie Details</title>
-  <style>
-    .movie-details {
-      text-align: center;
-    }
-    .movie-details img {
-      width: 300px;
-      height: auto;
-    }
-  </style>
+  <link rel="stylesheet" href="../styles/discovery.css"> 
+
+   <!-- FONT AWESOME JAVASCRIPT -->
+
+   <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+   integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+   crossorigin="anonymous"
+   referrerpolicy="no-referrer"
+ />
 </head>
 <body>
-  <div id="movie-details" class="movie-details">
-    <!-- Movie details will be populated here by JavaScript -->
-  </div>
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"></script>
+  <header>
+    <a href="#" class="logo">
+      <i class="fa-solid fa-clapperboard"></i> PLAY FLIX</a>
+    
+        <ul class="Navbar">
+          <li><a href="../index.html" > HOME </a></li>
+          <li><a href="#" class="home-active">MOVIES</a></li>
+        
+        </ul>
+    <div class="search-container search-bar">
+      <input type="search" id="suggestion-search-bar" placeholder="Search suggested movies..." />
+      <button id="search-button">🔍</button>
+    </div>
+    <!-- <div class="profile">
+      <a id="logout">LOGOUT</a>
+      <a href="./pages/login.html" target="_self" id="login">Login</a>
+      <i id="icon" class="fa-regular fa-user"></i>
+      <div id="users"></div>
+    </div> -->
+  </header>
+  <div id="movie-details-container"></div>
 
-  <script>
-    // Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyCEximerMkuSZVNY_WlHioJelJCiV48okY",
-      authDomain: "movies-list-934e9.firebaseapp.com",
-      projectId: "movies-list-934e9",
-      storageBucket: "movies-list-934e9.firebasestorage.app",
-      messagingSenderId: "68089362700",
-      appId: "1:68089362700:web:f3758978116a32c31b3129"
-    };
+  <script type="module">
+    function displayMovieDetails() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const movieTitle = urlParams.get('name');
+      if (!movieTitle) {
+        document.getElementById('movie-details-container').innerHTML = '<p>Movie not found.</p>';
+        return;
+      }
 
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore(app);
+      fetch('../data/movies.json')
+        .then(response => response.json())
+        .then(data => {
+          const allMovies = [...data.movies];
+          const movie = allMovies.find(movie => movie.name === movieTitle);
+          if (movie) {
+            const details = movie.details;
+            document.getElementById('movie-details-container').innerHTML = `
+              <div class="movie-details-card">
+                <img class="movie-details-image" src="${movie.image}" alt="${movie.name}" loading="lazy">
+                <div class="movie-details-info">
+                  <h2>${movie.name}</h2>
+                  <p><strong>Genre:</strong> ${movie.genre}</p>
+                  <p><strong>Director:</strong> ${movie.details.director}</p>
+                  <p><strong>Release Year:</strong> ${movie.year}</p>
+                  <p><strong>Play Time:</strong> ${movie.duration}</p>
+                  <p><strong>Rating:</strong> ${movie.rating}</p>
+                  <p><strong>Description:</strong> ${movie.description}</p>
+                  <p><strong>Cast:</strong> ${details.cast.join(', ')}</p>
+                  <p><strong>Language:</strong> ${movie.language}</p>
+                  
+                  <button class="watch-now-btn">Watch Now</button>
+                </div>
+              </div>`;
 
-    // Get movie ID from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const movieId = urlParams.get('id');
+            const suggestedMovies = allMovies.filter(m => m.name !== movie.name);
 
-    // Fetch movie data from Firestore by ID
-    db.collection("movies").doc(movieId).get()
-      .then((doc) => {
-        if (doc.exists) {
-          const movie = doc.data();
+            const renderSuggestions = (movies) => {
+              const suggestionsHTML = movies.map(suggestedMovie => 
+                `<div class="movie-card suggestion-card">
+                  <img class="movie-image" src="${suggestedMovie.image}" alt="${suggestedMovie.title}" loading="lazy">
+                  <div class="movie-info">
+                    <h3 class="movie-title">${suggestedMovie.name}</h3>
+                  </div>
+                </div>`
+              ).join('');
 
-          // Display the movie details
-          const movieDetailsDiv = document.getElementById('movie-details');
-          movieDetailsDiv.innerHTML = `
-            <h1>${movie.title}</h1>
-            <img src="${movie.poster}" alt="${movie.title}">
-            <p><strong>Director:</strong> ${movie.director}</p>
-            <p><strong>Description:</strong> ${movie.description}</p>
-            <p><strong>Duration:</strong> ${movie.duration}</p>
-            <a href="${movie.videolink}" target="_blank">Watch Trailer</a>
-          `;
-        } else {
-          document.getElementById('movie-details').innerHTML = '<p>Movie not found</p>';
-        }
-      })
-      .catch((error) => {
-        console.error("Error getting movie document: ", error);
-        document.getElementById('movie-details').innerHTML = '<p>Error loading movie details. Please try again later.</p>';
-      });
+              document.querySelector('.suggestions-container').innerHTML = suggestionsHTML;
+              document.querySelectorAll('.suggestion-card').forEach(card => {
+                card.addEventListener('click', () => {
+                  const suggestedTitle = card.querySelector('.movie-title').textContent;
+                  window.location.href = `movieDetails.html?name=${encodeURIComponent(suggestedTitle)}`;
+                });
+              });
+            };
+
+            document.getElementById('movie-details-container').innerHTML += `
+              <div class="suggestions-section">
+                <h3>Suggested Movies</h3>
+                <div class="suggestions-container"></div>
+              </div>`;
+            renderSuggestions(suggestedMovies);
+
+            const searchBar = document.getElementById('suggestion-search-bar');
+            searchBar.addEventListener('input', (event) => {
+              const query = event.target.value.toLowerCase();
+              const filteredMovies = suggestedMovies.filter(movie =>
+                movie.name.toLowerCase().includes(query) ||
+                (movie.genre && movie.genre.toLowerCase().includes(query))
+              );
+              renderSuggestions(filteredMovies);
+            });
+          } else {
+            document.getElementById('movie-details-container').innerHTML = '<p>Movie details not available.</p>';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching movie data:', error);
+          document.getElementById('movie-details-container').innerHTML = '<p>Failed to load movie details.</p>';
+        });
+    }
+    window.onload = displayMovieDetails;
   </script>
 </body>
 </html>
-

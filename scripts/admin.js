@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getFirestore,  doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import {  getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { loggedInUserId } from "./movie.js";
+import { loggedInUserId } from "./movies.js";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -34,11 +34,11 @@ onAuthStateChanged(auth, async (user) => {
         const userData = docSnap.data();
         console.log("User Data:", userData.Username);
         userDetails.innerHTML = `
-          <h3 class="userName">${userData.Username}</h3>`;
+          <h3 class="userName fw-bold">${userData.Username}</h3>`;
       } else {
         console.warn("No such document found for the user!");
         userDetails.innerHTML = `
-          <h3 class="userName"> Guest user</h3>`;
+          <h3 class="fw-bold"> Guest user</h3>`;
       }
     } catch (error) {
       console.error("Error retrieving user data:", error);

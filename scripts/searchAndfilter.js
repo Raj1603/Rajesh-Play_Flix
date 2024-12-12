@@ -1,7 +1,7 @@
 // Import Firebase dependencies
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-import {loggedInUserId}from "./movie.js";
+import {loggedInUserId}from "./movies.js";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -19,14 +19,14 @@ const db = getFirestore(app);
 
 // **Dynamic Search Movies Function**
 async function searchMovies(searchQuery) {
-    const collectionsToSearch = ["movies","newMovies", "favoriteMovies","genresDrama","genresAction","genresComedy"];
+    const collectionsToSearch = ["movies"];
     const results = [];
 
     for (const collectionName of collectionsToSearch) {
         const snapshot = await getDocs(collection(db, collectionName));
         snapshot.forEach((doc) => {
             const movie = doc.data();
-            if (movie.title?.toLowerCase().includes(searchQuery.toLowerCase())) {
+            if (movie.name?.toLowerCase().includes(searchQuery.toLowerCase())) {
                 results.push({ ...movie, collectionName });
             }
         });
@@ -50,9 +50,9 @@ function renderMovies(results) {
 
         movieCard.innerHTML = `
 
-            <img src="${movie.poster}" alt="${movie.title}" >
+            <img src="${movie.image}" alt="${movie.name}" >
             <p><strong>Genre:</strong> ${movie.genre || "N/A"}</p>
-            <h3>${movie.title}</h3>
+            <h3>${movie.name}</h3>
              ${ loggedInUserId ? `<a href="#" class="btn" data-videolink="${movie.videolink}" data-poster="${movie.poster}">Watch Now</a>`:` <a href="${movie.videolink}" target="_self">Watch Trailer</a>`}
             
         `;

@@ -1,6 +1,6 @@
-[
+"genreComedy":[
     {
-      "id": 1,
+      "id":"genreComedy-001",
       "title": "The Grand Budapest Hotel",
       "director": "Wes Anderson",
       "poster": "https://i.redd.it/7uwranzer48d1.jpeg",

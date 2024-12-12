@@ -1,0 +1,48 @@
+ [
+    {
+      "id": 1,
+      "title": "Inception",
+      "director": "Christopher Nolan",
+      "poster": "https://wallpapercave.com/wp/fWnWpHj.jpg",
+      "videolink": "https://youtu.be/cdx31ak4KbQ",
+      "description": "A skilled thief, the absolute best in the dangerous art of extraction, stealing valuable secrets from deep within the subconscious during the dream state.",
+      "duration": "2h 28m"
+    },
+    {
+      "id": 2,
+      "title": "The Shawshank Redemption",
+      "director": "Frank Darabont",
+      "poster": "https://wallpapercave.com/wp/wp2014258.jpg",
+      "videolink": "https://youtu.be/PLl99DlL6b4",
+      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "duration": "2h 22m"
+    },
+    {
+      "id": 3,
+      "title": "The Dark Knight",
+      "director": "Christopher Nolan",
+      "poster": "https://occ-0-8407-999.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABQ9GrZtcopug7NkZ8Mq2QFdRmDjhlpjxGdc1QRKukW_1RT6rqxtTfdr9AhhaFAIDt2RDGUwD1qpk6e07gJcrJ9Uz165k2kOhTyc3.jpg?r=157",
+      "videolink": "https://youtu.be/LDG9bisJEaI",
+      "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+      "duration": "2h 32m"
+    },
+    {
+      "id": 4,
+      "title": "Forrest Gump",
+      "director": "Robert Zemeckis",
+      "poster": "https://www.hollywoodreporter.com/wp-content/uploads/2019/06/forrest_gump-photofest_still_2-h_2019.jpg",
+      "videolink": "https://youtu.be/m-btyJIYLyI",
+      "description": "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal, and other historical events unfold from the perspective of an Alabama man with a high IQ.",
+      "duration": "2h 22m"
+    },
+    {
+      "id": 5,
+      "title": "The Matrix",
+      "director": "The Wachowskis",
+      "poster": "https://www.whatisthematrix.com/images/share.jpg",
+      "videolink": "https://youtu.be/d0XTFAMmhrE",
+      "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+      "duration": "2h 16m"
+    }
+  ]
+

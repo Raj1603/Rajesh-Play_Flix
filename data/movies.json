@@ -1,48 +1,140 @@
- [
+{
+  "movies": [
     {
       "id": 1,
-      "title": "Inception",
-      "director": "Christopher Nolan",
-      "poster": "https://wallpapercave.com/wp/fWnWpHj.jpg",
-      "videolink": "https://youtu.be/cdx31ak4KbQ",
-      "description": "A skilled thief, the absolute best in the dangerous art of extraction, stealing valuable secrets from deep within the subconscious during the dream state.",
-      "duration": "2h 28m"
+      "name": "Beyond the Stars",
+      "image": "https://wallpapercat.com/w/full/9/4/4/2081243-1920x1080-desktop-full-hd-star-trek-beyond-2016-wallpaper-image.jpg",
+      "description": "An astronaut ventures into deep space to uncover the mysteries of a dying galaxy.",
+      "genre": ["Comedy", "Adventure", "Drama"],
+      "rating": "7.5",
+      "language": ["English"],
+      "duration": "2h",
+      "year": "2024",
+      "details": {
+        "cast": ["Chris Pratt", "Zoe Saldana", "Jeff Goldblum"],
+        "director": "James Gunn",
+        "producer": "Kevin Feige",
+        "music": "Alan Silvestri"
+      }
     },
     {
       "id": 2,
-      "title": "The Shawshank Redemption",
-      "director": "Frank Darabont",
-      "poster": "https://wallpapercave.com/wp/wp2014258.jpg",
-      "videolink": "https://youtu.be/PLl99DlL6b4",
-      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-      "duration": "2h 22m"
+      "name": "The Last Emperor",
+      "image": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/192/2023/05/04114547/7TILJhdeJAaEyDiwvJZMo9SQBoe.jpg",
+      "description": "A gripping tale of the final days of an empire on the brink of collapse.",
+      "genre": [ "Comedy"],
+      "rating": "8.0",
+      "language": ["English", "Mandarin"],
+      "duration": "2h 45m",
+      "year": "1987",
+      "details": {
+        "cast": ["John Lone", "Joan Chen", "Peter O'Toole"],
+        "director": "Bernardo Bertolucci",
+        "producer": "Jeremy Thomas",
+        "music": "Ryuichi Sakamoto"
+      }
     },
     {
       "id": 3,
-      "title": "The Dark Knight",
-      "director": "Christopher Nolan",
-      "poster": "https://occ-0-8407-999.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABQ9GrZtcopug7NkZ8Mq2QFdRmDjhlpjxGdc1QRKukW_1RT6rqxtTfdr9AhhaFAIDt2RDGUwD1qpk6e07gJcrJ9Uz165k2kOhTyc3.jpg?r=157",
-      "videolink": "https://youtu.be/LDG9bisJEaI",
-      "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-      "duration": "2h 32m"
+      "name": "Eclipse of Destiny",
+      "image": "https://img.wattpad.com/cover/372982091-256-k276770.jpg",
+      "description": "A warrior must prevent an ancient prophecy from plunging the world into darkness.",
+      "genre": ["Action", "Fantasy", "Thriller"],
+      "rating": "7.0",
+      "language": ["English"],
+      "duration": "1h 58m",
+      "year": "2023",
+      "details": {
+        "cast": ["Chris Hemsworth", "Cate Blanchett", "Idris Elba"],
+        "director": "Taika Waititi",
+        "producer": "Kevin Feige",
+        "music": "Mark Mothersbaugh"
+      }
     },
     {
       "id": 4,
-      "title": "Forrest Gump",
-      "director": "Robert Zemeckis",
-      "poster": "https://www.hollywoodreporter.com/wp-content/uploads/2019/06/forrest_gump-photofest_still_2-h_2019.jpg",
-      "videolink": "https://youtu.be/m-btyJIYLyI",
-      "description": "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal, and other historical events unfold from the perspective of an Alabama man with a high IQ.",
-      "duration": "2h 22m"
+      "name": "Starlight Symphony",
+      "image": "https://i.ytimg.com/vi/T6pIJvnWrAI/maxresdefault.jpg",
+      "description": "An orphaned musician discovers a magical world through her enchanted violin.",
+      "genre": ["Animation", "Fantasy", "Musical"],
+      "rating": "8.5",
+      "language": ["English"],
+      "duration": "1h 40m",
+      "year": "2023",
+      "details": {
+        "cast": ["Emma Watson", "Idina Menzel"],
+        "director": "Jon Favreau",
+        "producer": "Marc Platt",
+        "music": "Alan Menken"
+      }
     },
     {
       "id": 5,
-      "title": "The Matrix",
-      "director": "The Wachowskis",
-      "poster": "https://www.whatisthematrix.com/images/share.jpg",
-      "videolink": "https://youtu.be/d0XTFAMmhrE",
-      "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-      "duration": "2h 16m"
+      "name": "Chronicles of the Forgotten",
+      "image": "https://m.media-amazon.com/images/I/61zZ544-d9L._AC_UF1000,1000_QL80_.jpg",
+      "description": "A young historian uncovers the truth behind a series of forgotten legends.",
+      "genre": ["Adventure", "Drama", "Mystery"],
+      "rating": "8.2",
+      "language": ["English"],
+      "duration": "2h 10m",
+      "year": "2023",
+      "details": {
+        "cast": ["Tom Holland", "Daisy Ridley", "Hugh Jackman"],
+        "director": "Ruben Fleischer",
+        "producer": "Amy Pascal",
+        "music": "Bear McCreary"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Mad Max: Fury Road",
+      "image": "https://c4.wallpaperflare.com/wallpaper/768/781/199/mad-max-fury-road-movies-car-mad-max-wallpaper-preview.jpg",
+      "description": "A post-apocalyptic action thriller featuring high-octane chases.",
+      "genre": ["Action", "Adventure", "Thriller"],
+      "rating": "8.1",
+      "language": ["English"],
+      "duration": "2h",
+      "year": "2015",
+      "details": {
+        "cast": ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
+        "director": "George Miller",
+        "producer": "Doug Mitchell",
+        "music": "Junkie XL"
+      }
+    },
+    {
+      "id": 7,
+      "name": "John Wick",
+      "image": "https://rukminim2.flixcart.com/image/850/1000/k8xduvk0/poster/j/m/z/medium-the-dark-knight-poster-decorative-wall-poster-wall-d-cor-original-imafqu8euacqngyh.jpeg?q=90&crop=false",
+      "description": "A retired hitman seeks vengeance after his dog is killed.",
+      "genre": ["Action", "Crime", "Thriller"],
+      "rating": "7.4",
+      "language": ["English"],
+      "duration": "1h 41m",
+      "year": "2024",
+      "details": {
+        "cast": ["Keanu Reeves", "Michael Nyqvist", "Alfie Allen"],
+        "director": "Chad Stahelski",
+        "producer": "Basil Iwanyk",
+        "music": "Tyler Bates"
+      }
+    },
+    {
+      "id": 8,
+      "name": "The Dark Knight",
+      "image": "https://rukminim2.flixcart.com/image/850/1000/kzzw5u80/poster/o/g/b/large-dark-knight-joker-quote-movie-poster-print-poster-on-large-original-imagbvmyqpzhgqyz.jpeg?q=20&crop=false",
+      "description": "Batman faces off against the Joker in a battle for Gotham.",
+      "genre": ["Action", "Crime", "Drama"],
+      "rating": "9.0",
+      "language": ["English"],
+      "duration": "2h 32m",
+      "year": "2024",
+      "details": {
+        "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+        "director": "Christopher Nolan",
+        "producer": "Emma Thomas",
+        "music": "Hans Zimmer"
+      }
     }
   ]
-
+}

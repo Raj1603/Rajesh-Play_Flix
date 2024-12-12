@@ -2,7 +2,7 @@
  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
  import{getFirestore,setDoc, doc,collection,getDocs} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js" ;
  // TODO: Add SDKs for Firebase products that you want to use
- import {loggedInUserId}from "./movie.js";
+ import {loggedInUserId}from "./movies.js";
 
 
 

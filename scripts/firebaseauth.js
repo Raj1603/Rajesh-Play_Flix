@@ -47,7 +47,7 @@ function clearErrorMessages() {
 function validateSignUp(email, password, firstName, lastName) {
     clearErrorMessages();
     const namePattern = /^[A-Za-z]+$/;
-    const emailPattern =   /^[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;   
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z][a-z0-9.-]*\.[a-z]{2,}$/;
 
     const passwordPattern = /^(?=(.*[a-z]))(?=(.*[A-Z]))(?=(.*\d))(?=(.*[@$!%*?&#]))[A-Za-z\d@$!%*?&#]/;
    

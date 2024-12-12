@@ -1,0 +1,4 @@
+{
+    "zencoder.enableRepoIndexing": false,
+    "zencoder.excludeGitIgnoreFromIndexing": false
+}
