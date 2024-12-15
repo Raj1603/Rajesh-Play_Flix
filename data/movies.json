@@ -15,12 +15,14 @@
         "director": "James Gunn",
         "producer": "Kevin Feige",
         "music": "Alan Silvestri"
-      }
+      },
+      "trailer_link":"https://www.youtube.com/embed/mBrVtZZeIm8?si=cAgATq6mi2gkLh56",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
     },
     {
       "id": 2,
       "name": "The Last Emperor",
-      "image": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/192/2023/05/04114547/7TILJhdeJAaEyDiwvJZMo9SQBoe.jpg",
+      "image": "https://wallpapercat.com/w/full/3/6/2/996444-1920x1080-desktop-1080p-the-last-emperor-1987-wallpaper.jpg",
       "description": "A gripping tale of the final days of an empire on the brink of collapse.",
       "genre": [ "Comedy"],
       "rating": "8.0",
@@ -32,12 +34,14 @@
         "director": "Bernardo Bertolucci",
         "producer": "Jeremy Thomas",
         "music": "Ryuichi Sakamoto"
-      }
+      },
+      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
     },
     {
       "id": 3,
       "name": "Eclipse of Destiny",
-      "image": "https://img.wattpad.com/cover/372982091-256-k276770.jpg",
+      "image": "https://images5.alphacoders.com/840/840505.jpg",
       "description": "A warrior must prevent an ancient prophecy from plunging the world into darkness.",
       "genre": ["Action", "Fantasy", "Thriller"],
       "rating": "7.0",
@@ -49,12 +53,14 @@
         "director": "Taika Waititi",
         "producer": "Kevin Feige",
         "music": "Mark Mothersbaugh"
-      }
+      },
+      "trailer_link":"https://www.youtube.com/embed/9sJw5fkWJmI?si=JPcNxnAVSP0-xyLd",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
     },
     {
       "id": 4,
       "name": "Starlight Symphony",
-      "image": "https://i.ytimg.com/vi/T6pIJvnWrAI/maxresdefault.jpg",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnQ5foqt4nbfT6UkNzmQ806sNpCWMz-zgLkA&s",
       "description": "An orphaned musician discovers a magical world through her enchanted violin.",
       "genre": ["Animation", "Fantasy", "Musical"],
       "rating": "8.5",
@@ -66,12 +72,14 @@
         "director": "Jon Favreau",
         "producer": "Marc Platt",
         "music": "Alan Menken"
-      }
+      },
+      "trailer_link":"https://www.youtube.com/embed/AX-6V-Qb_ic?si=APnjmo_1B6JIXLE1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
     },
     {
       "id": 5,
       "name": "Chronicles of the Forgotten",
-      "image": "https://m.media-amazon.com/images/I/61zZ544-d9L._AC_UF1000,1000_QL80_.jpg",
+      "image": "https://c4.wallpaperflare.com/wallpaper/903/593/154/hero-prince-of-persia-prince-of-persia-the-forgotten-sands-wallpaper-preview.jpg",
       "description": "A young historian uncovers the truth behind a series of forgotten legends.",
       "genre": ["Adventure", "Drama", "Mystery"],
       "rating": "8.2",
@@ -83,12 +91,14 @@
         "director": "Ruben Fleischer",
         "producer": "Amy Pascal",
         "music": "Bear McCreary"
-      }
+      },
+      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
     },
     {
       "id": 6,
       "name": "Mad Max: Fury Road",
-      "image": "https://c4.wallpaperflare.com/wallpaper/768/781/199/mad-max-fury-road-movies-car-mad-max-wallpaper-preview.jpg",
+      "image": "https://w0.peakpx.com/wallpaper/924/404/HD-wallpaper-movie-mad-max-fury-road-charlize-theron-imperator-furiosa-max-rockatansky-tom-hardy.jpg",
       "description": "A post-apocalyptic action thriller featuring high-octane chases.",
       "genre": ["Action", "Adventure", "Thriller"],
       "rating": "8.1",
@@ -100,12 +110,14 @@
         "director": "George Miller",
         "producer": "Doug Mitchell",
         "music": "Junkie XL"
-      }
+      },
+      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
     },
     {
       "id": 7,
       "name": "John Wick",
-      "image": "https://rukminim2.flixcart.com/image/850/1000/k8xduvk0/poster/j/m/z/medium-the-dark-knight-poster-decorative-wall-poster-wall-d-cor-original-imafqu8euacqngyh.jpeg?q=90&crop=false",
+      "image": "https://images5.alphacoders.com/130/1307181.jpeg",
       "description": "A retired hitman seeks vengeance after his dog is killed.",
       "genre": ["Action", "Crime", "Thriller"],
       "rating": "7.4",
@@ -117,12 +129,14 @@
         "director": "Chad Stahelski",
         "producer": "Basil Iwanyk",
         "music": "Tyler Bates"
-      }
+      },
+      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
     },
     {
       "id": 8,
       "name": "The Dark Knight",
-      "image": "https://rukminim2.flixcart.com/image/850/1000/kzzw5u80/poster/o/g/b/large-dark-knight-joker-quote-movie-poster-print-poster-on-large-original-imagbvmyqpzhgqyz.jpeg?q=20&crop=false",
+      "image": "https://wallpapers.com/images/hd/dark-knight-joker-in-4k-ultra-hd-movie-poster-4l2ct8wxmxwhodk6.jpg",
       "description": "Batman faces off against the Joker in a battle for Gotham.",
       "genre": ["Action", "Crime", "Drama"],
       "rating": "9.0",
@@ -134,7 +148,141 @@
         "director": "Christopher Nolan",
         "producer": "Emma Thomas",
         "music": "Hans Zimmer"
-      }
+      },
+      "trailer_link":"https://www.youtube.com/embed/AX-6V-Qb_ic?si=APnjmo_1B6JIXLE1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
+    }, {
+      "id": 9,
+      "name": "Whispers in the Woods",
+      "image": "https://i.ytimg.com/vi/U8LIXMkYOlQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCQGPXKE9RExSMv8C8ubzIJiv2EUw",
+      "description": "A chilling story of a group of friends unraveling dark secrets in a haunted forest.",
+      "genre": ["Horror", "Thriller", "Mystery"],
+      "rating": "7.8",
+      "language": ["English"],
+      "duration": "1h 50m",
+      "year": "2023",
+      "details": {
+        "cast": ["Florence Pugh", "Timothée Chalamet", "Anya Taylor-Joy"],
+        "director": "Jordan Peele",
+        "producer": "Jason Blum",
+        "music": "Michael Abels"
+      },
+      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
+    },
+    {
+      "id": 10,
+      "name": "Infinite Horizons",
+      "image": "https://c4.wallpaperflare.com/wallpaper/764/942/461/movie-deep-water-horizon-wallpaper-preview.jpg",
+      "description": "A scientist explores parallel universes to find a cure for his dying daughter.",
+      "genre": ["Sci-Fi", "Drama", "Adventure"],
+      "rating": "8.7",
+      "language": ["English"],
+      "duration": "2h 20m",
+      "year": "2024",
+      "details": {
+        "cast": ["Matt Damon", "Jessica Chastain", "Michael Fassbender"],
+        "director": "Denis Villeneuve",
+        "producer": "Ridley Scott",
+        "music": "Hans Zimmer"
+      },
+      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
+    },
+    {
+      "id": 11,
+      "name": "The Forgotten Melody",
+      "image": "https://w0.peakpx.com/wallpaper/210/219/HD-wallpaper-forgotten-melody-beautiful-old-life-lost-youth.jpg",
+      "description": "A romantic journey of two strangers connected by a mysterious song.",
+      "genre": ["Romance", "Drama", "Musical"],
+      "rating": "8.3",
+      "language": ["English"],
+      "duration": "1h 45m",
+      "year": "2023",
+      "details": {
+        "cast": ["Lily James", "Andrew Garfield"],
+        "director": "Damien Chazelle",
+        "producer": "Marc Platt",
+        "music": "Justin Hurwitz"
+      },
+      "trailer_link":"https://www.youtube.com/embed/AX-6V-Qb_ic?si=APnjmo_1B6JIXLE1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
+    },
+    {
+      "id": 12,
+      "name": "Pixel Wars",
+      "image": "https://e1.pxfuel.com/desktop-wallpaper/363/809/desktop-wallpaper-pixels-movie-posters-of-arcade-classics-1920x1080-arcade-movies.jpg",
+      "description": "Gamers unite to save the digital realm from a rogue AI villain.",
+      "genre": ["Animation", "Action", "Comedy"],
+      "rating": "7.6",
+      "language": ["English"],
+      "duration": "1h 30m",
+      "year": "2024",
+      "details": {
+        "cast": ["Ryan Reynolds", "Zendaya"],
+        "director": "Phil Lord",
+        "producer": "Chris Miller",
+        "music": "Christophe Beck"
+      },
+      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
+    },
+    {
+      "id": 13,
+      "name": "The Art of War",
+      "image": "https://ntvb.tmsimg.com/assets/p26126_v_h10_ag.jpg?w=1280&h=720",
+      "description": "An intense drama revolving around strategies and betrayal in a power-hungry empire.",
+      "genre": ["Historical", "Drama", "Action"],
+      "rating": "8.9",
+      "language": ["English", "Japanese"],
+      "duration": "2h 15m",
+      "year": "2023",
+      "details": {
+        "cast": ["Hiroyuki Sanada", "Ken Watanabe", "Scarlett Johansson"],
+        "director": "Akira Kurosawa",
+        "producer": "Shozo Watanabe",
+        "music": "Joe Hisaishi"
+      },
+      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
+    },
+    {
+      "id": 14,
+      "name": "Galactic Odyssey",
+      "image": "https://images7.alphacoders.com/329/329832.jpg",
+      "description": "A young pilot's journey to unite the galaxies under a single flag.",
+      "genre": ["Sci-Fi", "Action", "Adventure"],
+      "rating": "7.9",
+      "language": ["English"],
+      "duration": "2h 5m",
+      "year": "2024",
+      "details": {
+        "cast": ["John Boyega", "Daisy Ridley", "Oscar Isaac"],
+        "director": "J.J. Abrams",
+        "producer": "Kathleen Kennedy",
+        "music": "Michael Giacchino"
+      },
+      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
+    },
+    {
+      "id": 15,
+      "name": "City of Shadows",
+      "image": "https://files.idyllic.app/files/static/2639130?width=384&optimizer=image",
+      "description": "A gritty crime saga following a detective uncovering corruption in his city.",
+      "genre": ["Crime", "Sci-Fi", "Thriller"],
+      "rating": "8.4",
+      "language": ["English"],
+      "duration": "2h",
+      "year": "2023",
+      "details": {
+        "cast": ["Jake Gyllenhaal", "Viola Davis", "J.K. Simmons"],
+        "director": "David Fincher",
+        "producer": "Ceán Chaffin",
+        "music": "Trent Reznor & Atticus Ross"
+      },
+      "trailer_link":"https://www.youtube.com/embed/AX-6V-Qb_ic?si=APnjmo_1B6JIXLE1",
+      "video_link":"https://www.youtube.com/embed/gQaz6Q_VzO0?si=jFwL4Y7ZxdDSaY25" 
     }
   ]
 }

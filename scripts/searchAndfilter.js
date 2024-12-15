@@ -53,7 +53,15 @@ function renderMovies(results) {
             <img src="${movie.image}" alt="${movie.name}" >
             <p><strong>Genre:</strong> ${movie.genre || "N/A"}</p>
             <h3>${movie.name}</h3>
-             ${ loggedInUserId ? `<a href="#" class="btn" data-videolink="${movie.videolink}" data-poster="${movie.poster}">Watch Now</a>`:` <a href="${movie.videolink}" target="_self">Watch Trailer</a>`}
+            ${
+                loggedInUserId
+                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}" class="btn" data-videolink="${
+                      movie.videolink
+                    }">Watch Now</a>`
+                  : `<a href="${movie.videolink}" target="_self">Watch Trailer</a>`
+              }
             
         `;
 

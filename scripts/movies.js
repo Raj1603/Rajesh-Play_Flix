@@ -78,10 +78,10 @@ const renderAllMovies = (movies) => {
                 loggedInUserId
                   ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
                       movie.name
-                    )}" class="btn" data-videolink="${
-                      movie.videolink
-                    }">Watch Now</a>`
-                  : `<a href="${movie.videolink}" target="_self">Watch Trailer</a>`
+                    )}" class="btn" >Watch Now</a>`
+                  : `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}">Watch Trailer</a>`
               }
             </div>
           </div>`;
@@ -114,15 +114,15 @@ const renderNewReleased = (movies) => {
       <div class="released-item">
         <img src="${movie.image}" alt="${movie.name} poster">
         <h1 class="view">${movie.name}</h1>
-                 ${
-                   loggedInUserId
-                     ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                         movie.name
-                       )}" class="btn" data-videolink="${
-                         movie.videolink
-                       }">Watch Now</a>`
-                     : `<a href="${movie.videolink}" target="_self">Watch Trailer</a>`
-                 }
+                  ${
+                loggedInUserId
+                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}" class="btn" >Watch Now</a>`
+                  : `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}">Watch Trailer</a>`
+              }
       </div>
     `;
   });
@@ -151,15 +151,15 @@ const renderTopRated = (movies) => {
         <img src="${movie.image}" alt="${movie.name} poster">
         <h1 class="view">${movie.name}</h1>
         <h2>${movie.rating} </h2>
-                 ${
-                   loggedInUserId
-                     ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                         movie.name
-                       )}" class="btn" data-videolink="${
-                         movie.videolink
-                       }">Watch Now</a>`
-                     : `<a href="${movie.videolink}" target="_self">Watch Trailer</a>`
-                 }
+                ${
+                loggedInUserId
+                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}" class="btn" >Watch Now</a>`
+                  : `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}">Watch Trailer</a>`
+              }
       </div>
     `;
   });
@@ -188,15 +188,15 @@ const renderByGenres = (movies) => {
               <h1 class="view">${movie.name}</h1>
               <h2>${movie.rating}</h2>
               <p><span>Genre:</span> ${genre}</p>
-                       ${
-                         loggedInUserId
-                           ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                               movie.name
-                             )}" class="btn" data-videolink="${
-                               movie.videolink
-                             }">Watch Now</a>`
-                           : `<a href="${movie.videolink}" target="_self">Watch Trailer</a>`
-                       }
+                         ${
+                loggedInUserId
+                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}" class="btn" >Watch Now</a>`
+                  : `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}">Watch Trailer</a>`
+              }
             </div>
           `;
 

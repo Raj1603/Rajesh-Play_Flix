@@ -667,93 +667,82 @@
 
 
    /* ---------------------------------------RESULT PAGE STYLES---------------------------------------- */
-
-
-      /* Style for the suggestions section */
-.suggestions-section {
-  margin: 50px 100px;
-}
-.suggestions-section h3 {
-  font-size: 2rem;
- 
-  margin-bottom: 20px;
-}
-.suggestions-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 5 movies per row dynamically */
-  gap: 20px;
-}
-.suggestion-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-}
-.suggestion-card:hover {
-  transform: scale(1.05);
-}
-.suggestion-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-bottom: 1px solid #ddd;
-}
-.suggestion-card .movie-info {
-  padding: 10px;
-  text-align: center;
-}
-.suggestion-card .movie-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 10px 0;
-}
-.suggestion-card .movie-title:hover {
-  color: #007BFF;
-  cursor: pointer;
-}
-    .movie-details-image{
-        height: 500px;
-        width: 450px;
-        border-radius: 15px;
-    }
-    .movie-details-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px; /* Space between image and details */
-      padding-top: 100px;
-      padding-left: 100px;
-      padding-right: 100px;
-      margin-left: 50px;
-    }
-    .movie-details-info {
-      flex: 1; /* Make the details take the remaining space */
-    }
-    .movie-details-info p{
-            padding-top: 20px;
-            font-family: Serif;
-    }
-    .movie-details-info h2 {
-      margin-top: 0; /* Adjust if needed */
-      font-size: 3rem;
-      font-family: Serif;
-    }
-    .search-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-#suggestion-search-bar {
-  width: 20rem;
-  max-width: 500px;
-  padding: 10px;
-  margin-left: 250px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-#suggestion-search-bar:focus {
-  border-color: #007BFF;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+   .movie-details-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 40px;
+    border-radius: 15px;
+    margin: 40px;
+    position: relative;
+   
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .movie-details-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 0;
+  }
+  
+  /* .movie-details-image {
+   max-width: 20rem;
+   height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  } */
+  
+  .movie-details-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: fixed;
+    z-index: 1; /* Ensures content stays above the background overlay */
+  }
+  
+  .movie-details-info h2 {
+    font-size: 2.5rem;
+    color: #f5c518;
+    margin-bottom: 10px;
+  }
+  
+  .movie-details-info p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .movie-details-info p strong {
+    font-weight: bold;
+    color: #f5c518;
+  }
+  
+  .watch-now-btn {
+    background-color: #e50914;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .watch-now-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.5);
+  }
+  

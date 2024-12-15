@@ -19,15 +19,19 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+
     />
+
+
+    
     <!-- admin js -->
-    <script type="module" src="./scripts/admin.js"></script>
+    <script type="module" src="./scripts/admin.js" defer></script>
 
     <!-- MOVIESLIST JAVASCRIPT -->
-    <script type="module" src="./scripts/movies.js"></script>
+    <script type="module" src="./scripts/movies.js" defer></script>
 
     <!-- search bar JAVASCRIPT -->
-    <script type="module" src="./scripts/searchAndfilter.js"></script>
+    <script type="module" src="./scripts/searchAndfilter.js" defer></script>
 
     <!-- VIDEO.JS -->
 
@@ -91,7 +95,7 @@
         <div class="genre-list">
           <div class="genre-item">
             <div class="image-container">
-              <img src="./assets/images/action.jpg" alt="Action" />
+              <img src="./assets/images/horror.jpg" alt="Action" />
               <div class="image-description">
                 <a href="." class="btn explore-button">Explore more>></a>
               </div>
@@ -126,6 +130,82 @@
           </div>
           <!-- Section for dynamically added items -->
           <div class="expanded-items hidden" id="drama-container"></div>
+
+          <!-- <div class="genre-item">
+            <div class="image-container">
+              <img src="./assets/images/thriller.jpg" alt="Drama" />
+              <div class="image-description">
+                <a href="." class="btn explore-button">Explore more>></a>
+              </div>
+            </div>
+            <h2>Drama</h2>
+          </div>
+
+          <div class="expanded-items hidden" id="drama-container"></div> -->
+            <div class="genre-item">
+              <div class="image-container">
+                <img src="../assets/images/thriller.jpg" alt="Horror" />
+                <div class="image-description">
+
+                  <a href="#"  class="btn explore-button">Explore more>></a>
+                </div>
+              </div>
+                <h2>Horror</h2>
+            </div>
+                  
+        <div class="expanded-items hidden"  id="horror-container">
+          
+       
+      </div>
+            <!-- <div class="genre-item">
+              <div class="image-container">
+                <img src="../assets/images/action.jpg" alt="Science Fiction" />
+                <div class="image-description">
+
+                  <a href="#" class="btn explore-button">Explore more>></a>
+                </div>
+              </div>
+                <h2>Science Fiction</h2>
+            </div>
+                  
+        <div class="expanded-items hidden" id="scifi-container"></div> -->
+         
+          
+      
+            <div class="genre-item">
+              <div class="image-container">
+                <img src="../assets/images/thriller.jpg" alt="Thriller" />
+                <div class="image-description">
+
+                  <a href="#"  class="btn explore-button">Explore more>></a>
+                </div>
+
+              </div>
+                <h2>Thriller</h2>
+            </div>
+                  
+        <div class="expanded-items hidden" id="thriller-container">
+          
+         
+      </div>
+            <div class="genre-item">
+                
+                <div class="image-container">
+                  <img src=" ../assets/images/horror.jpg" alt="Thriller" />
+                  <div class="image-description">
+
+                    <a href="#"  class="btn explore-button">Explore more>></a>
+                  </div>
+  
+                </div>
+                <h2>Fantasy</h4>
+
+            </div>
+                  
+        <div class="expanded-items hidden"  id="fantasy-container">
+         
+          
+      </div>
         </div>
       </div>
     </section>
@@ -178,8 +258,28 @@
         </a>
       </div>
     </footer>
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" ></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        loop: false,
+        autoplay: {
+          delay: 1000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
     <script>
 /// JavaScript code
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Get all explore buttons
@@ -232,24 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     </script>
-    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script>
-      const swiper = new Swiper(".swiper", {
-        loop: false,
-        autoplay: {
-          delay: 2000,
-          disableOnInteraction: false,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
-    </script>
+    
   </body>
 </html>
