@@ -57,10 +57,10 @@ function renderMovies(results) {
                 loggedInUserId
                   ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
                       movie.name
-                    )}" class="btn" data-videolink="${
-                      movie.videolink
-                    }">Watch Now</a>`
-                  : `<a href="${movie.videolink}" target="_self">Watch Trailer</a>`
+                    )}" class="btn" >Watch Now</a>`
+                  : `<a  href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}"  >Watch Trailer</a>`
               }
             
         `;
