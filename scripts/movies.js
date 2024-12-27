@@ -21,10 +21,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 // *************** Upload Movies to Firestore ****************************
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 // Read the JSON file
 
@@ -66,6 +66,10 @@ const renderAllMovies = (movies) => {
   const CarouselMovies = movies;
   let htmlContent = "";
   CarouselMovies.forEach((movie) => {
+    
+    const buttonLabel= loggedInUserId?"Wath Now":"Watch Trailer";
+    const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
+    const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
     // Initialize HTML content
     htmlContent += `
           <div class="swiper-slide">
@@ -74,15 +78,8 @@ const renderAllMovies = (movies) => {
               <h2 class="view"><span>Movie:</span> ${movie.name}</h2>
               <p class="hide"><span>Description:</span> ${movie.description}</p>
               
-              ${
-                loggedInUserId
-                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}" class="btn" >Watch Now</a>`
-                  : `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}">Watch Trailer</a>`
-              }
+            ${buttonHTML}
+             <button class="watch-later-btn" data-movie-id=${movie.id}>Watch Later</button>
             </div>
           </div>`;
   });
@@ -110,19 +107,18 @@ const renderNewReleased = (movies) => {
   let htmlContent = "";
 
   newMovies.forEach((movie) => {
+
+    const buttonLabel= loggedInUserId?"Wath Now":"Watch Trailer";
+    const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
+    const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
     htmlContent += `
       <div class="released-item">
         <img src="${movie.image}" alt="${movie.name} poster">
         <h1 class="view">${movie.name}</h1>
                   ${
-                loggedInUserId
-                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}" class="btn" >Watch Now</a>`
-                  : `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}">Watch Trailer</a>`
+               buttonHTML
               }
+               <button class="watch-later-btn" data-movie-id=${movie.id}>Watch Later</button>
       </div>
     `;
   });
@@ -146,20 +142,20 @@ const renderTopRated = (movies) => {
   let htmlContent = "";
 
   topRatedMovies.forEach((movie) => {
+
+    
+    const buttonLabel= loggedInUserId?"Wath Now":"Watch Trailer";
+    const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
+    const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
     htmlContent += `
       <div class="favorite-item">
         <img src="${movie.image}" alt="${movie.name} poster">
         <h1 class="view">${movie.name}</h1>
         <h2>${movie.rating} </h2>
                 ${
-                loggedInUserId
-                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}" class="btn" >Watch Now</a>`
-                  : `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}">Watch Trailer</a>`
+             buttonHTML
               }
+               <button class="watch-later-btn" data-movie-id=${movie.id}>Watch Later</button>
       </div>
     `;
   });
@@ -182,6 +178,10 @@ const renderByGenres = (movies) => {
 
         // If the container exists, render the movie inside it
         if (genreContainer) {
+          
+    const buttonLabel= loggedInUserId?"Wath Now":"Watch Trailer";
+    const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
+    const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
           const movieHtml = `
             <div class="movie-item">
               <img src="${movie.image}" alt="${movie.name} poster">
@@ -189,14 +189,9 @@ const renderByGenres = (movies) => {
               <h2>${movie.rating}</h2>
               <p><span>Genre:</span> ${genre}</p>
                          ${
-                loggedInUserId
-                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}" class="btn" >Watch Now</a>`
-                  : `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}">Watch Trailer</a>`
+               buttonHTML
               }
+               <button class="watch-later-btn" data-movie-id=${movie.id}>Watch Later</button>
             </div>
           `;
 
@@ -210,3 +205,7 @@ const renderByGenres = (movies) => {
 
 // Fetch movies and render them by genre
 fetchMovies().then(renderByGenres);
+
+
+
+

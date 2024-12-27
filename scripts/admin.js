@@ -15,9 +15,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase App and Services
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth();
+export const app = initializeApp(firebaseConfig);
+ export const db = getFirestore(app);
+ export const auth = getAuth();
 
 // *************** Fetch Logged-in User Data ****************************
 onAuthStateChanged(auth, async (user) => {
@@ -35,6 +35,7 @@ onAuthStateChanged(auth, async (user) => {
         console.log("User Data:", userData.Username);
         userDetails.innerHTML = `
           <h3 class="userName fw-bold">${userData.Username}</h3>`;
+
       } else {
         console.warn("No such document found for the user!");
         userDetails.innerHTML = `

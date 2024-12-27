@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Page</title>
+ 
+  <script type="module" src="../scripts/userAndtheirMovies.js"></script>
+  <link rel="stylesheet" href="../styles/user.css">
+</head>
+<style>
+  .movie-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .watch-later-btn {
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .watch-later-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+</style>
+<body>
+  <h1>Welcome to Your Movie Wishlist</h1>
+
+  <!-- Display user details -->
+  <div>
+    <p id="user-name">Name: Loading...</p>
+    <p id="user-email">Email: Loading...</p>
+  </div>
+
+  <!-- Movies List -->
+  <div>
+    <h2>Available Movies</h2>
+    <ul id="movies-list">  </ul>
+  </div>
+      <!-- <li>
+        <span>Movie 1</span>
+        <button class="watch-later-btn" data-movie-id="movie1">Add to Watch Later</button>
+      </li>
+      <li>
+        <span>Movie 2</span>
+        <button class="watch-later-btn" data-movie-id="movie2">Add to Watch Later</button>
+      </li>
+      <li>
+        <span>Movie 3</span>
+        <button class="watch-later-btn" data-movie-id="movie3">Add to Watch Later</button>
+      </li> -->
+   
+
+  <!-- Wishlist -->
+  <div>
+    <h2>Your Wishlist</h2>
+    <ul id="wishlist-movies">
+      <p>No movies in wishlist yet.</p>
+    </ul>
+  </div>
+</body>
+</html>

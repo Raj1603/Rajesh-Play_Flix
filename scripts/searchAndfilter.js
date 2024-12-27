@@ -1,6 +1,6 @@
 // Import Firebase dependencies
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { app } from "./movies.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 import {loggedInUserId}from "./movies.js";
 
 // Firebase Configuration
@@ -14,7 +14,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase and Firestore
-const app = initializeApp(firebaseConfig);
+
 const db = getFirestore(app);
 
 // **Dynamic Search Movies Function**
