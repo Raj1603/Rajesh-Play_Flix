@@ -5,7 +5,7 @@ import {  getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/f
 import { loggedInUserId } from "./movies.js";
 
 // Firebase Configuration
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyB3VZw2WEmDvMXyFEbpc00umhEykmmY8N8",
   authDomain: "login-form-f5168.firebaseapp.com",
   projectId: "login-form-f5168",
@@ -17,6 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase App and Services
 export const app = initializeApp(firebaseConfig);
  export const db = getFirestore(app);
+
  export const auth = getAuth();
 
 // *************** Fetch Logged-in User Data ****************************

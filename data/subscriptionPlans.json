@@ -1,0 +1,18 @@
+{
+    "basic": {
+      "name": "Basic",
+      "wishlistLimit": 10,
+      "price": 5.99
+    },
+    "standard": {
+      "name": "Standard",
+      "wishlistLimit": 50,
+      "price": 9.99
+    },
+    "premium": {
+      "name": "Premium",
+      "wishlistLimit": -1,
+      "price": 19.99
+    }
+  }
+  

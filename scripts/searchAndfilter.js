@@ -1,21 +1,7 @@
-// Import Firebase dependencies
-import { app } from "./movies.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
-import {loggedInUserId}from "./movies.js";
-
-// Firebase Configuration
-const firebaseConfig = {
-    apiKey: "AIzaSy...",
-    authDomain: "movies-list-934e9.firebaseapp.com",
-    projectId: "movies-list-934e9",
-    storageBucket: "movies-list-934e9.appspot.com",
-    messagingSenderId: "68089362700",
-    appId: "1:68089362700:web:f3758978116a32c31b3129"
-};
-
-// Initialize Firebase and Firestore
-
-const db = getFirestore(app);
+// Import Firebase services
+import { db } from "./admin.js";
+import { collection, getDocs} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { loggedInUserId } from "./movies.js";
 
 // **Dynamic Search Movies Function**
 async function searchMovies(searchQuery) {
@@ -52,7 +38,7 @@ function renderMovies(results) {
 
             <img src="${movie.image}" alt="${movie.name}" >
             <p><strong>Genre:</strong> ${movie.genre || "N/A"}</p>
-            <h3>${movie.name}</h3>
+            
             ${
                 loggedInUserId
                   ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(

@@ -25,7 +25,7 @@
 
     
     <!-- admin js -->
-    <script type="module" src="./scripts/admin.js" defer></script>
+    <script    src="./scripts/admin.js" defer  type="module"></script>
 
     <!-- MOVIESLIST JAVASCRIPT -->
     <script type="module" src="./scripts/movies.js" defer></script>
@@ -33,13 +33,13 @@
     <!-- search bar JAVASCRIPT -->
     <script type="module"   src="./scripts/searchAndfilter.js" defer></script>
 
-    <!-- VIDEO.JS -->
-<!-- 
-    <script  type="module"  src="./scripts/userAndtheirMovies.js" defer></script> -->
+    <!-- Add wishlist-->
+  <script type="module" src="./scripts/userAndtheirMovies.js" defer></script>
+   
   </head>
 
   <body>
-    <!-- Navbar -->
+    
     <header>
       <a href="#" class="logo">
         <i class="fa-solid fa-clapperboard"></i> PLAY FLIX</a>
@@ -66,7 +66,8 @@
       <div class="profile">
         <a id="logout">LOGOUT</a>
         <a href="./pages/login.html" target="_self" id="login">Login</a>
-        <i id="icon" class="fa-regular fa-user"></i>
+        
+        <a href="./pages/user-detailAndMovies.html"> <i id="icon" class="fa-regular fa-user"></i></a>
         <div id="users"></div>
       </div>
     </header>
@@ -94,7 +95,7 @@
             <div class="image-container">
               <img src="./assets/images/horror.jpg" alt="Action" />
               <div class="image-description">
-                <a href="." class="btn explore-button">Explore more>></a>
+                <a href="." class="btn explore-button" >Explore more>></a>
               </div>
             </div>
             <h2>Action</h2>
@@ -217,6 +218,7 @@
         <h3>NEW RELEASED</h3>
         <div id="newReleasedmovies-list" class="newReleased-list"></div>
       </div>
+  
    
     <footer>
       <p>&#169; PLAY FLIX ALL RIGHTS ARE RESERVED.</p>
@@ -257,6 +259,7 @@
     </footer>
 
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" ></script>
     <script>
       const swiper = new Swiper(".swiper", {
@@ -330,6 +333,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     </script>
+   
+     
     
   </body>
 </html>

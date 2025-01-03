@@ -236,7 +236,7 @@
       "rating": "8.9",
       "language": ["English", "Japanese"],
       "duration": "2h 15m",
-      "year": "2023",
+      "year": "2025",
       "details": {
         "cast": ["Hiroyuki Sanada", "Ken Watanabe", "Scarlett Johansson"],
         "director": "Akira Kurosawa",
@@ -251,11 +251,11 @@
       "name": "Galactic Odyssey",
       "image": "https://images7.alphacoders.com/329/329832.jpg",
       "description": "A young pilot's journey to unite the galaxies under a single flag.",
-      "genre": ["Sci-Fi", "Action", "Adventure"],
+      "genre": ["Sci-Fi", "Action", "Adventure","Comedy"],
       "rating": "7.9",
       "language": ["English"],
       "duration": "2h 5m",
-      "year": "2024",
+      "year": "2025",
       "details": {
         "cast": ["John Boyega", "Daisy Ridley", "Oscar Isaac"],
         "director": "J.J. Abrams",

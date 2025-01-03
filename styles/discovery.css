@@ -148,7 +148,7 @@
           transform: translateY(-2px); /* Subtle lift effect */ 
       }
 
-      .profile i {
+      /* .profile i {
           
           text-align: center;
           font-size:x-large;
@@ -160,9 +160,9 @@
 
       } 
       .profile i:hover{
-          background-color: #0056b3; /* Darker blue on hover */
-          transform: translateY(-2px); /* Subtle lift effect */ 
-      }
+          background-color: #0056b3; 
+          transform: translateY(-2px); 
+      } */
 
        
       #usersDetail .userName{

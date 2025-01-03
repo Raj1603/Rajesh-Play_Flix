@@ -118,4 +118,235 @@
       });
     </script>
   </body>
-</html>
+</html><script>
+import { auth } from "./admin.js";
+  import { db } from "./admin.js";
+  import {
+    doc,
+    updateDoc,
+    arrayUnion,
+    arrayRemove,
+    getDoc,
+    getDocs,
+    collection,
+  } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+  
+  // ************************** Helper Function to Check Subscription Expiration **************************
+  const isSubscriptionActive = (expirationDate) => {
+    const now = new Date();
+    return new Date(expirationDate).getTime() > now.getTime();
+  };
+  
+  // ************************** Wishlist Functions **************************
+  
+  // Fetch and display the user's wishlist with full movie details
+  async function fetchWishlist(userId) {
+    const userRef = doc(db, "users", userId);
+  
+    try {
+      const userSnap = await getDoc(userRef);
+  
+      if (!userSnap.exists()) {
+        console.warn("User document not found.");
+        alert("User not found. Please contact support.");
+        return;
+      }
+  
+      const userData = userSnap.data();
+      const wishlist = userData.wishlist || []; // Default to empty array
+  
+      const wishlistMoviesList = document.getElementById("wishlist-movies");
+      wishlistMoviesList.innerHTML = ""; // Clear previous list
+  
+      if (wishlist.length === 0) {
+        wishlistMoviesList.innerHTML = "<p>No movies in your wishlist yet.</p>";
+        return;
+      }
+  
+      // Fetch all movies from "movies" collection
+      const moviesSnap = await getDocs(collection(db, "movies"));
+      const movies = [];
+      moviesSnap.forEach((doc) => {
+        const movie = doc.data();
+        if (wishlist.includes(movie.name)) {
+          movies.push(movie);
+        }
+      });
+  
+      // Render movies in the wishlist
+      if (movies.length > 0) {
+        movies.forEach((movie) => {
+          const movieCard = document.createElement("div");
+          movieCard.className = "movie-card";
+  
+          movieCard.innerHTML = `
+            <img src="${movie.image}" alt="${movie.name}" class="wishlist-movie-image">
+            <div class="wishlist-movie-details">
+              <h3>${movie.name}</h3>
+              <p><strong>Genre:</strong> ${movie.genre || "Unknown"}</p>
+              <p><strong>Description:</strong> ${
+                movie.description || "No description available."
+              }</p>
+              ${
+                auth.currentUser
+                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}" class="btn">Watch Now</a>`
+                  : `<a href="./pages/movie-details.html?name=${encodeURIComponent(
+                      movie.name
+                    )}" class="btn">Watch Trailer</a>`
+              }
+              <button class="remove-btn">Remove</button>
+            </div>
+          `;
+  
+          // Add remove functionality
+          movieCard
+            .querySelector(".remove-btn")
+            .addEventListener("click", () =>
+              removeMovieFromWishlist(userId, movie.name)
+            );
+  
+          wishlistMoviesList.appendChild(movieCard);
+        });
+      } else {
+        wishlistMoviesList.innerHTML = "<p>No matching movies found in your wishlist.</p>";
+      }
+    } catch (error) {
+      console.error("Error fetching wishlist:", error);
+      alert("Failed to load the wishlist. Please try again.");
+    }
+  }
+  
+  // Function to remove a movie from the wishlist
+  async function removeMovieFromWishlist(userId, movieName) {
+    const userRef = doc(db, "users", userId);
+  
+    try {
+      await updateDoc(userRef, {
+        wishlist: arrayRemove(movieName),
+      });
+  
+      console.log(`Movie "${movieName}" removed from wishlist.`);
+      fetchWishlist(userId); // Refresh wishlist after removal
+    } catch (error) {
+      console.error("Error removing movie:", error);
+      alert("Failed to remove movie. Please try again.");
+    }
+  }
+  
+  // ************************** Subscription Plan Upgrade **************************
+  document.getElementById("upgrade-form").addEventListener("submit", async (event) => {
+    event.preventDefault();
+  
+    const plan = document.getElementById("plan").value;
+    const cardNumber = document.getElementById("card-number").value;
+    const expiryDate = document.getElementById("expiry-date").value;
+    const cvv = document.getElementById("cvv").value;
+  
+    // Validate inputs
+    if (!["basic", "standard", "premium"].includes(plan)) {
+      alert("Please select a valid subscription plan.");
+      return;
+    }
+  
+    if (!/^\d{16}$/.test(cardNumber)) {
+      alert("Invalid card number. Please enter a 16-digit card number.");
+      return;
+    }
+  
+    const now = new Date();
+    const inputExpiry = new Date(expiryDate);
+    if (inputExpiry < now) {
+      alert("Card expiry date must be in the future.");
+      return;
+    }
+  
+    if (!/^\d{3}$/.test(cvv)) {
+      alert("Invalid CVV. Please enter a 3-digit CVV.");
+      return;
+    }
+  
+    const userId = localStorage.getItem("loggedInUserId");
+    if (!userId) {
+      alert("Please log in to upgrade your plan.");
+      return;
+    }
+  
+    const userRef = doc(db, "users", userId);
+  
+    try {
+      const subscriptionDurations = {
+        basic: 7,
+        standard: 30,
+        premium: 90,
+      };
+  
+      const subscriptionExpiresAt = new Date();
+      subscriptionExpiresAt.setDate(
+        subscriptionExpiresAt.getDate() + subscriptionDurations[plan]
+      );
+  
+      await updateDoc(userRef, {
+        subscriptionPlan: plan,
+        subscriptionExpiresAt: subscriptionExpiresAt.toISOString(),
+      });
+  
+      alert(`Your plan has been upgraded to ${plan.toUpperCase()}!`);
+      document.getElementById("user-plan").innerText = `Plan: ${plan}`;
+    } catch (error) {
+      console.error("Error upgrading plan:", error);
+      alert("Failed to upgrade plan. Please try again.");
+    }
+  });
+  
+  // ************************** Auth State Listener **************************
+  auth.onAuthStateChanged(async (user) => {
+    if (!user) {
+      alert("User not logged in. Redirecting...");
+      window.location.href = "/login.html";
+      return;
+    }
+  
+    const userId = user.uid;
+    console.log("Logged-in User ID:", userId);
+  
+    const userRef = doc(db, "users", userId);
+  
+    try {
+      const userSnap = await getDoc(userRef);
+      if (userSnap.exists()) {
+        const userData = userSnap.data();
+  
+        // Display user info
+        document.getElementById("user-name").innerText = `Name: ${
+          userData.Username || "No name"
+        }`;
+        document.getElementById("user-email").innerText = `Email: ${user.email}`;
+        document.getElementById("user-plan").innerText = `Plan: ${
+          userData.subscriptionPlan || "Free"
+        }`;
+  
+        // Fetch wishlist only if the subscription is active
+        if (
+          userData.subscriptionPlan &&
+          isSubscriptionActive(userData.subscriptionExpiresAt)
+        ) {
+          fetchWishlist(userId);
+        } else {
+          alert(
+            "Your subscription has expired. Please renew to access the wishlist feature."
+          );
+        }
+      } else {
+        console.warn("User document not found.");
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  });
+  
+  
+  
+  
+  </script>

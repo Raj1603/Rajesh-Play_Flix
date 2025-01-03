@@ -1,22 +1,15 @@
-// Import Firebase dependencies
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+// Import Firebase services
+import { db } from "./admin.js";
+import {  collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { loggedInUserId } from "./movies.js";
 
-// Firebase Configuration
-const firebaseConfig = {
-    apiKey: "AIzaSy...",
-    authDomain: "movies-list-934e9.firebaseapp.com",
-    projectId: "movies-list-934e9",
-    storageBucket: "movies-list-934e9.appspot.com",
-    messagingSenderId: "68089362700",
-    appId: "1:68089362700:web:f3758978116a32c31b3129"
-};
 
-// Initialize Firebase and Firestore
-const app = initializeApp(firebaseConfig);
-const db2 = getFirestore(app);
+(async () => {
+    console.log(db); // Ensure this logs the initialized Firestore instance
+    // Your code using db...
+    // Read the JSON file
 
+    
 // Function to display movie details based on the query parameter
 async function displayMovieDetails() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -28,7 +21,7 @@ async function displayMovieDetails() {
 
     try {
         // Query the Firestore `movies` collection for a matching movie
-        const moviesRef = collection(db2, "movies");
+        const moviesRef = collection(db, "movies");
         const movieQuery = query(moviesRef, where("name", "==", movieTitle));
         const snapshot = await getDocs(movieQuery);
 
@@ -134,3 +127,5 @@ function showTrailerModal(trailer_Link) {
 
 // Attach function to window.onload
 window.onload = displayMovieDetails;
+
+})();
