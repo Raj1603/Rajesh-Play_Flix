@@ -745,7 +745,24 @@
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(229, 9, 20, 0.5);
   }
-  
+  .video-btns a{
+    text-decoration: none;
+    background-color: #097be5;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+  }
+  .video-btns a:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(9, 123, 229, 0.5);
+  }
+  /* ----------------------------WISHLIST BUTTON */
   #results div .buttons{
     border: none;
     display: flex;

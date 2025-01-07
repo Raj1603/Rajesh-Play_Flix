@@ -128,7 +128,7 @@ const renderTopRated = (movies) => {
       <div class="favorite-item">
         <img src="${movie.image}" alt="${movie.name} poster">
         <h1 class="view">${movie.name}</h1>
-        <h2>${movie.rating}</h2>
+                      <h2><strong>Rating: </strong>${movie.rating}</h2>
         <div class="buttons">
               ${buttonHTML}
              <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
@@ -155,7 +155,7 @@ const renderByGenres = (movies) => {
             <div class="movie-item">
               <img src="${movie.image}" alt="${movie.name} poster">
               <h1 class="view">${movie.name}</h1>
-              <h2>${movie.rating}</h2>
+              <h2><strong>Rating: </strong>${movie.rating}</h2>
               <p><span>Genre:</span> ${genre}</p>
               <div class="buttons">
               ${buttonHTML}

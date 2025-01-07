@@ -1,11 +1,11 @@
 // Import Firebase services
 import { db } from "./admin.js";
-import {  collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import {  collection, getDocs,getDoc,doc, query, where } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { loggedInUserId } from "./movies.js";
 
-
+const userId=loggedInUserId;
 (async () => {
-    console.log(db); // Ensure this logs the initialized Firestore instance
+    // console.log(db); // Ensure this logs the initialized Firestore instance
     // Your code using db...
     // Read the JSON file
 
@@ -20,12 +20,21 @@ async function displayMovieDetails() {
     }
 
     try {
+
         // Query the Firestore `movies` collection for a matching movie
         const moviesRef = collection(db, "movies");
+        const userRef = doc(db, "users", userId);
+        const userSnap = await getDoc(userRef);
+        // console.log(`found ${userSnap}`);
+        
+
         const movieQuery = query(moviesRef, where("name", "==", movieTitle));
         const snapshot = await getDocs(movieQuery);
 
-        if (!snapshot.empty) {
+        if (!snapshot.empty||userSnap) {
+            const userData = userSnap.data();  //user snapshot
+            const subscriptionPlan = userData.subscriptionPlan ; //user subscription
+            console.log("This is Subscription plan",subscriptionPlan)
             const movieDoc = snapshot.docs[0];
             const movie = movieDoc.data();
             const details = movie.details || {};
@@ -43,20 +52,31 @@ async function displayMovieDetails() {
                         <p><strong>Cast:</strong> ${details.cast ? details.cast.join(', ') : 'N/A'}</p>
                         <p><strong>Language:</strong> ${movie.language || 'N/A'}</p>
                         ${
-                            loggedInUserId
-                                ? `<button class="watch-now-btn" id="watch-now">Watch Now
+                             subscriptionPlan
 
-                                  </button>`
-                                : `<button class="watch-now-btn" id="watch-trailer">Watch Trailer
+                                ? 
+                                `<div class=video-btns><button class="watch-now-btn" id="watch-now">Watch Now
 
-                                  </button>`
+                                  </button> <button class="watch-now-btn" id="watch-trailer">Watch Trailer
+
+                                  </button> </div>`
+                                : `<div class=video-btns><button class="watch-now-btn" id="watch-trailer">Watch Trailer
+
+                                  </button>  <a href="./user-detailAndMovies.html">Buy a Subcription</a>
+
+                                  </div>`
                         }
+                       
                     </div>
                 </div>`;
+
+
    
             // Add event listeners
             const watchNowButton = document.getElementById("watch-now");
             const watchTrailerButton = document.getElementById("watch-trailer");
+         
+
 
             if (watchNowButton) {
                 watchNowButton.addEventListener("click", () => {
@@ -69,6 +89,7 @@ async function displayMovieDetails() {
                     showTrailerModal(movie.trailer_link);
                 });
             }
+         
         } else {
             document.getElementById('movie-details-container').innerHTML = '<p>Movie details not available.</p>';
         }
