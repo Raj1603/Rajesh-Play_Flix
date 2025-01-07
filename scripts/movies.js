@@ -1,4 +1,5 @@
-// Import Firebase services
+
+  // Import Firebase services
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getFirestore, collection, getDocs, addDoc, query, where } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
@@ -63,7 +64,7 @@ const renderAllMovies = (movies) => {
 
   let htmlContent = "";
   movies.forEach((movie) => {
-    const buttonLabel = loggedInUserId ? "Watch Now" : "Watch Trailer";
+    const buttonLabel = loggedInUserId ? "More Info" : "More info";
     const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
     const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
     htmlContent += `
@@ -72,8 +73,11 @@ const renderAllMovies = (movies) => {
         <div class="movie-details">
           <h2 class="view"><span>Movie:</span> ${movie.name}</h2>
           <p class="hide"><span>Description:</span> ${movie.description}</p>
-          ${buttonHTML}
-          <button class="watch-later-btn" data-movie-id="${movie.name}">Watch Later</button>
+         <div class="buttons">
+              ${buttonHTML}
+             <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
+             </div>
+
         </div>
       </div>`;
   });
@@ -91,15 +95,17 @@ const renderNewReleased = (movies) => {
 
   let htmlContent = "";
   newMovies.forEach((movie) => {
-    const buttonLabel = loggedInUserId ? "Watch Now" : "Watch Trailer";
+    const buttonLabel = loggedInUserId ?  "More Info" : "More info";
     const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
     const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
     htmlContent += `
       <div class="released-item">
         <img src="${movie.image}" alt="${movie.name} poster">
         <h1 class="view">${movie.name}</h1>
-        ${buttonHTML}
-        <button class="watch-later-btn" data-movie-id="${movie.name}">Watch Later</button>
+        <div class="buttons">
+              ${buttonHTML}
+             <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
+             </div>
       </div>`;
   });
 
@@ -115,7 +121,7 @@ const renderTopRated = (movies) => {
 
   let htmlContent = "";
   topRatedMovies.forEach((movie) => {
-    const buttonLabel = loggedInUserId ? "Watch Now" : "Watch Trailer";
+    const buttonLabel = loggedInUserId ?  "More Info" : "More info";
     const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
     const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
     htmlContent += `
@@ -123,8 +129,10 @@ const renderTopRated = (movies) => {
         <img src="${movie.image}" alt="${movie.name} poster">
         <h1 class="view">${movie.name}</h1>
         <h2>${movie.rating}</h2>
-        ${buttonHTML}
-        <button class="watch-later-btn" data-movie-id="${movie.name}">Watch Later</button>
+        <div class="buttons">
+              ${buttonHTML}
+             <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
+             </div>
       </div>`;
   });
 
@@ -140,7 +148,7 @@ const renderByGenres = (movies) => {
       movie.genre.forEach((genre) => {
         const genreContainer = document.getElementById(`${genre.toLowerCase()}-container`);
         if (genreContainer && !renderedMovies.has(movie.name)) {
-          const buttonLabel = loggedInUserId ? "Watch Now" : "Watch Trailer";
+          const buttonLabel = loggedInUserId ?  "More Info" : "More info";
           const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
           const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
           const movieHtml = `
@@ -149,8 +157,10 @@ const renderByGenres = (movies) => {
               <h1 class="view">${movie.name}</h1>
               <h2>${movie.rating}</h2>
               <p><span>Genre:</span> ${genre}</p>
+              <div class="buttons">
               ${buttonHTML}
-              <button class="watch-later-btn" data-movie-id="${movie.name}">Watch Later</button>
+             <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
+             </div>
             </div>`;
 
           genreContainer.innerHTML += movieHtml;

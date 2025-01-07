@@ -55,12 +55,14 @@ function validateSignUp(email, password, firstName, lastName) {
         document.getElementById("emailError").textContent = "Give valid email address.";
         document.getElementById("emailError").classList.add("error");
         isValid = false;
+
     }
 
     if (password.length < minPasswordLength) {
         document.getElementById("passwordError").textContent = `Password must contain ${minPasswordLength} characters.`;
         document.getElementById("passwordError").classList.add("error");
         isValid = false;
+        
     } else if (!passwordPattern.test(password)) {
         document.getElementById("passwordError").textContent = "Password must contain a special character and an uppercase.";
         document.getElementById("passwordError").classList.add("errorforPassWord");
@@ -94,6 +96,7 @@ function validateSignUp(email, password, firstName, lastName) {
         document.getElementById("lNameError").classList.add("error");
         isValid = false;
     }
+ 
 
     return isValid;
 }
@@ -137,6 +140,7 @@ document.getElementById("submitSignUp").addEventListener("click", (event) => {
     const userName = `${firstName} ${lastName}`;
 
     if (!validateSignUp(email, password, firstName, lastName)) {
+        document.getElementById("submitSignUp").reset();
         return;
     }
 
@@ -155,6 +159,7 @@ document.getElementById("submitSignUp").addEventListener("click", (event) => {
                 .catch((error) => {
                     console.error("Error writing document:", error);
                     showMessage("Error saving user data. Please try again.", "signUpMessage");
+                   
                 });
         })
         .catch((error) => {
@@ -191,6 +196,7 @@ document.getElementById("submitSignIn").addEventListener("click", (event) => {
             if (errorCode === "auth/wrong-password" || errorCode === "auth/user-not-found") {
                 document.getElementById("signInMessage").textContent = "Incorrect Email or Password.";
                 showMessage("Incorrect Email or Password.", "signInMessage");
+                
                 console.log("Wrong password")
             } else {
                 showMessage("Account does not exist", "signInMessage");

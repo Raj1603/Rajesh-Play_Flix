@@ -746,3 +746,32 @@
     box-shadow: 0 5px 15px rgba(229, 9, 20, 0.5);
   }
   
+  #results div .buttons{
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: #e50914;
+  }
+
+  #results div .buttons .watch-later-btn{
+    font-size: xx-large;
+
+  }
+
+
+  .swiper-slide div .buttons{
+    /* display: flex; */
+    
+    color: #e50914;
+  }
+  .swiper-slide div  .watch-later-btn{
+    font-size:x-large;
+    padding: 10px 20px;
+   
+  }
+  div .buttons .watch-later-btn{
+    color: #e50914;
+    font-size:x-large;
+    padding: 10px 20px;
+  }

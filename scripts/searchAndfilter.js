@@ -32,22 +32,21 @@ function renderMovies(results) {
 
     results.forEach((movie) => {
         const movieCard = document.createElement("div");
-        
+        const buttonLabel = loggedInUserId ? "More Info" : "More info";
+        const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
+        const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
 
         movieCard.innerHTML = `
 
             <img src="${movie.image}" alt="${movie.name}" >
             <p><strong>Genre:</strong> ${movie.genre || "N/A"}</p>
             
-            ${
-                loggedInUserId
-                  ? `<a href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}" class="btn" >Watch Now</a>`
-                  : `<a  href="./pages/movie-details.html?name=${encodeURIComponent(
-                      movie.name
-                    )}"  >Watch Trailer</a>`
-              }
+             <div class="buttons">
+              ${buttonHTML}
+             <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
+             </div>
+
+        </div>
             
         `;
 

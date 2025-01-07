@@ -25,7 +25,7 @@
 
     
     <!-- admin js -->
-    <script    src="./scripts/admin.js" defer  type="module"></script>
+    <script   type="module"  src="./scripts/admin.js" defer ></script>
 
     <!-- MOVIESLIST JAVASCRIPT -->
     <script type="module" src="./scripts/movies.js" defer></script>
@@ -67,7 +67,7 @@
         <a id="logout">LOGOUT</a>
         <a href="./pages/login.html" target="_self" id="login">Login</a>
         
-        <a href="./pages/user-detailAndMovies.html"> <i id="icon" class="fa-regular fa-user"></i></a>
+        <a  id="icon" href="./pages/user-detailAndMovies.html"> <i  class="fa-regular fa-user"></i></a>
         <div id="users"></div>
       </div>
     </header>
@@ -79,10 +79,14 @@
       <!-- <div id="video-container" ></div> -->
     </div>
     <!-- Swiper Carousel -->
+     <!-- Slider main container -->
     <section class="swiper">
+       <!-- Slides -->
       <div id="movies" class="swiper-wrapper"></div>
+        <!-- If we need navigation buttons -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
+      <!-- If we need pagination -->
       <div class="swiper-pagination"></div>
     </section>
 
@@ -129,18 +133,7 @@
           <!-- Section for dynamically added items -->
           <div class="expanded-items hidden" id="drama-container"></div>
 
-          <!-- <div class="genre-item">
-            <div class="image-container">
-              <img src="./assets/images/thriller.jpg" alt="Drama" />
-              <div class="image-description">
-                <a href="." class="btn explore-button">Explore more>></a>
-              </div>
-            </div>
-            <h2>Drama</h2>
-          </div>
-
-          <div class="expanded-items hidden" id="drama-container"></div> -->
-            <div class="genre-item">
+            <!-- <div class="genre-item">
               <div class="image-container">
                 <img src="../assets/images/thriller.jpg" alt="Horror" />
                 <div class="image-description">
@@ -154,7 +147,7 @@
         <div class="expanded-items hidden"  id="horror-container">
           
        
-      </div>
+      </div> -->
             <!-- <div class="genre-item">
               <div class="image-container">
                 <img src="../assets/images/action.jpg" alt="Science Fiction" />
@@ -170,7 +163,7 @@
          
           
       
-            <div class="genre-item">
+            <!-- <div class="genre-item">
               <div class="image-container">
                 <img src="../assets/images/thriller.jpg" alt="Thriller" />
                 <div class="image-description">
@@ -200,7 +193,7 @@
 
             </div>
                   
-        <div class="expanded-items hidden"  id="fantasy-container">
+        <div class="expanded-items hidden"  id="fantasy-container"> -->
          
           
       </div>
@@ -223,10 +216,10 @@
     <footer>
       <p>&#169; PLAY FLIX ALL RIGHTS ARE RESERVED.</p>
 
-      <p>PRIVACY</p>
+      <!-- <p>PRIVACY</p>
       <p>TERMS</p>
       <p>HELPS</p>
-      <p>DEVICES</p>
+      <p>DEVICES</p> -->
 
       <div>
         <!-- Youtube -->

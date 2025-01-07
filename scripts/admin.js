@@ -65,7 +65,8 @@ onAuthStateChanged(auth, async (user) => {
   document.getElementById('logout')?.addEventListener('click', () => {
     signOut(auth)
       .then(() => {
-        alert('User logged out successfully!');
+        confirm('Are you sure you want to log out')
+        // alert('User logged out successfully!');
         window.location.href = './index.html';
         localStorage.clear();
         console.log("Local storage has been cleared.");

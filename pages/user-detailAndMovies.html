@@ -7,190 +7,32 @@
  
   <script type="module" src="../scripts/userAndTheirMovies.js" defer></script>
   <link rel="stylesheet" href="../styles/user.css">
-  <link rel="stylesheet" href="../styles/discovery.css" />
+  <link rel="stylesheet" href="../styles/discovery.css"/>
+
+    <!-- FONT AWESOME JAVASCRIPT -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
-<style>
-  /* Improved styles */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-
-  h1 {
-    text-align: center;
-    color: #007bff;
-  }
-
-  h2 {
-    margin-bottom: 10px;
-    color: #0056b3;
-  }
-
-  div {
-    margin-bottom: 30px;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  #subscription-upgrade {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-  }
-
-  input,
-  select,
-  button {
-    margin-top: 5px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-
-  input:focus,
-  select:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-
-  button {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  button:hover {
-    background-color: #0056b3;
-  }
-
-  /* wishlist button */
- .remove-btn {
-  max-width: 100px;
-    background-color: #ff0400;
-    color: white;
-    border-radius: 2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
- 
-  .remove-btn:hover {
-    background-color: #201e1d;
-  }
-
-  /* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-  color: #333;
-}
-
-h1 {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 2.5em;
-}
-
-/* Pricing Section */
-.pricing-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.pricing-cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* Card Styles */
-.card {
-  background-color: #fff;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-.featured {
-  border: 2px solid #007bff;
-  background-color: #eaf4ff;
-}
-
-h2 {
-  font-size: 1.8em;
-  margin-bottom: 10px;
-  color: #007bff;
-}
-
-.price {
-  font-size: 2em;
-  color: #333;
-  margin: 10px 0;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-ul li {
-  font-size: 1em;
-  margin: 10px 0;
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .pricing-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-}
 
 
-</style>
 <body>
+<section id="details"  style="display: none;">
+  <header>
+    <a href="../index.html" class="logo">
+      <i class="fa-solid fa-clapperboard"></i> PLAY FLIX</a>
+
+     
+    <ul class="Navbar">
+     
+      <li><a href="#" class="home-active">MOVIES</a></li>
+    </ul>
+  </header>
+
   <h1>Welcome to Your Movie Wishlist</h1>
 
   <!-- Display user details -->
@@ -201,15 +43,15 @@ button:hover {
   </div>
 
   <!-- Wishlist -->
-  <div id="wishlist-section"  >  <!-- style="display:none;" -->
+  <div id="wishlist-section"   >  
     <h2>Your Wishlist</h2>
     
       <div class="Card" id="wishlist-movies" ></div>
       <!-- Movies will be dynamically added here -->
     
   </div>
-  
-  <section class="pricing-section"> <!-- style="display:none;" -->
+  <!-- Choose your plan -->
+  <section class="pricing-section"    > <!-- style="display:none;" -->
     <h1>Choose Your Plan</h1>
     <div class="pricing-cards">
       <div class="card">
@@ -220,7 +62,7 @@ button:hover {
           <li>No Ads</li>
           <li>Cancel Anytime</li>
         </ul>
-        <button>Subscribe</button>
+        <button class="Subscription-btn">Subscribe</button>
       </div>
       <div class="card featured">
         <h2>15 Days</h2>
@@ -230,7 +72,7 @@ button:hover {
           <li>No Ads</li>
           <li>Cancel Anytime</li>
         </ul>
-        <button>Subscribe</button>
+        <button class="Subscription-btn">Subscribe</button>
       </div>
       <div class="card">
         <h2>30 Days</h2>
@@ -240,70 +82,51 @@ button:hover {
           <li>No Ads</li>
           <li>Cancel Anytime</li>
         </ul>
-        <button>Subscribe</button>
+        <button class="Subscription-btn">Subscribe</button>
       </div>
     </div>
   </section>
-  <!-- Subscription Upgrade -->
-  <div id="subscription-upgrade"   >  <!-- style="display:none;" -->
-    <h2>Upgrade Your Plan</h2>
-    <form id="upgrade-form">
-      <label for="plan">Select Plan:</label>
-      <select id="plan" name="plan" required>
-        <option value="" disabled selected>Select a plan</option>
-        <option value="basic">Basic</option>
-        <option value="standard">Standard</option>
-        <option value="premium">Premium</option>
-      </select>
-      <br />
+</section>
 
-      <label for="card-number">Card Number:</label>
-      <input
-        type="text"
-        id="card-number"
-        name="card-number"
-        placeholder="1234 5678 9012 3456"
-        maxlength="19"
-        required
-      />
-      <br />
+<section class="container"  id="subscription-upgrade" style="display: none;" >
+  <h1>Set up your credit or debit card</h1>
+  
+  <form id="paymentForm">
+    <div class="input-group">
+      <label for="cardNumber">Card number</label>
+      <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required maxlength="16">
+      <span class="error" id="cardNumberError">Please enter a card number.</span>
+    </div>
+    <div class="input-group">
+      <label for="expirationDate">Expiration date</label>
+      <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required maxlength="5">
+      <span class="error" id="expirationDateError">Please enter an expiration date.</span>
+    </div>
+    <div class="input-group">
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" name="cvv" placeholder="CVV" required maxlength="3">
+      <span class="error" id="cvvError">Please enter a CVV.</span>
+    </div>
+    <div class="input-group">
+      <label for="nameOnCard">Name on card</label>
+      <input type="text" id="nameOnCard" name="nameOnCard" placeholder="Enter the name on the card" required>
+      <span class="error" id="nameOnCardError">Name is required.</span>
+    </div>
+    <div class="price-info">
+      <h2>Plan</h2>
+      <p id="userPlan" >₹149/month Mobile</p>
+    </div>
+    <!-- <div class="checkbox-group">
+      <input type="checkbox" id="agree" name="agree" required>
+      <label for="agree">I agree.</label>
+    </div> -->
+    <button type="submit" id="paymentSubmit">Start Membership</button>
+   
+  </form>
+  <button type="button"  id="closeSubscription">Cancel</button>
+</section>
 
-      <label for="expiry-date">Expiry Date:</label>
-      <input type="month" id="expiry-date" name="expiry-date" required />
-      <br />
+</body>
 
-      <label for="cvv">CVV:</label>
-      <input
-        type="text"
-        id="cvv"
-        name="cvv"
-        placeholder="123"
-        maxlength="3"
-        required
-      />
-      <br />
 
-      <button type="submit">Upgrade Plan</button>
-    </form>
-  </div>
-<!-- </body><script>
- document.addEventListener('DOMContentLoaded', function() {
-    const userPlanElement = document.getElementById('user-plan');
-    if(userPlanElement==="Plan: Free"){
-      console.log(`userPlan -- check:${userPlanElement}`);
-      
-      // document.getElementById('pricing-section').style.display = 'block';
-      document.getElementById('wishlist-movies').style.display = 'flex';
-      document.getElementById('subscription-upgrade').style.display = 'block';
-    }
-    else{
-      console.log(`userPlan :${userPlanElement.textContent}`);
-      document.getElementById('pricing-section').style.display = 'none';
-      document.getElementById('wishlist-movies').style.display = 'block';
-      document.getElementById('subscription-upgrade').style.display = 'none';
-    }
-});
-</script> -->
 </html>
-
-
