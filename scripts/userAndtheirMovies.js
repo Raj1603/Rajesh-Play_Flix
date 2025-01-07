@@ -114,7 +114,7 @@ async function removeMovieFromWishlist(userId, movieName) {
 document.body.addEventListener("click", async (event) => {
 
   if (event.target.classList.contains("watch-later-btn")) {
-    // event.target.textContent = "added in Wishlist"
+    event.target.style.color ="white";
     const movieName = event.target.getAttribute("data-movie-id");
     const userId = localStorage.getItem("loggedInUserId");
 
