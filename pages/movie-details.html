@@ -16,6 +16,27 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  <!-- <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet"> -->
+  <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
+  <style>
+   
+    #video-modal video {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover; /* Ensures video fills the space without distortion */
+    }
+
+    @media screen and (max-width: 768px) {
+        #video-modal {
+            width: 90%;
+            height: 60%;
+        }
+    }
+
+
+  </style>
+
+
 </head>
 <body>
   <header>
@@ -30,4 +51,7 @@
 
   <!-- <img class="movie-details-image" src="${movie.image}" alt="${movie.name}" loading="lazy"> -->
 </body>
+<!-- <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script> -->
+ 
+<script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
 </html>

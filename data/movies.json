@@ -16,8 +16,8 @@
         "producer": "Kevin Feige",
         "music": "Alan Silvestri"
       },
-      "trailer_link":"https://www.youtube.com/embed/mBrVtZZeIm8?si=cAgATq6mi2gkLh56",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0" 
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" 
     },
     {
       "id": 2,
@@ -35,8 +35,8 @@
         "producer": "Jeremy Thomas",
         "music": "Ryuichi Sakamoto"
       },
-      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0"
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
     },
     {
       "id": 3,
@@ -54,8 +54,8 @@
         "producer": "Kevin Feige",
         "music": "Mark Mothersbaugh"
       },
-      "trailer_link":"https://www.youtube.com/embed/9sJw5fkWJmI?si=JPcNxnAVSP0-xyLd",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0"
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
     },
     {
       "id": 4,
@@ -73,8 +73,8 @@
         "producer": "Marc Platt",
         "music": "Alan Menken"
       },
-      "trailer_link":"https://www.youtube.com/embed/AX-6V-Qb_ic?si=APnjmo_1B6JIXLE1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0"
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
     },
     {
       "id": 5,
@@ -92,8 +92,8 @@
         "producer": "Amy Pascal",
         "music": "Bear McCreary"
       },
-      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0"
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
     },
     {
       "id": 6,
@@ -111,8 +111,8 @@
         "producer": "Doug Mitchell",
         "music": "Junkie XL"
       },
-      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0" 
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" 
     },
     {
       "id": 7,
@@ -130,8 +130,8 @@
         "producer": "Basil Iwanyk",
         "music": "Tyler Bates"
       },
-      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0"
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
     },
     {
       "id": 8,
@@ -149,8 +149,8 @@
         "producer": "Emma Thomas",
         "music": "Hans Zimmer"
       },
-      "trailer_link":"https://www.youtube.com/embed/AX-6V-Qb_ic?si=APnjmo_1B6JIXLE1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0"
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4"
     }, {
       "id": 9,
       "name": "Whispers in the Woods",
@@ -167,8 +167,8 @@
         "producer": "Jason Blum",
         "music": "Michael Abels"
       },
-      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0" 
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" 
     },
     {
       "id": 10,
@@ -186,8 +186,8 @@
         "producer": "Ridley Scott",
         "music": "Hans Zimmer"
       },
-      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0" 
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" 
     },
     {
       "id": 11,
@@ -205,8 +205,8 @@
         "producer": "Marc Platt",
         "music": "Justin Hurwitz"
       },
-      "trailer_link":"https://www.youtube.com/embed/AX-6V-Qb_ic?si=APnjmo_1B6JIXLE1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0"
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
     },
     {
       "id": 12,
@@ -224,8 +224,8 @@
         "producer": "Chris Miller",
         "music": "Christophe Beck"
       },
-      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0" 
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" 
     },
     {
       "id": 13,
@@ -243,8 +243,8 @@
         "producer": "Shozo Watanabe",
         "music": "Joe Hisaishi"
       },
-      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0" 
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4" 
     },
     {
       "id": 14,
@@ -262,8 +262,8 @@
         "producer": "Kathleen Kennedy",
         "music": "Michael Giacchino"
       },
-      "trailer_link":"https://www.youtube.com/embed/A4cH6g1wD5g?si=_rFRD13p0tZEFVg1",
-      "video_link":"https://www.youtube.com/embed/p_PJbmrX4uk?si=Gg1C-uzlUlmvCAz0" 
+      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" 
     }
   ]
 }

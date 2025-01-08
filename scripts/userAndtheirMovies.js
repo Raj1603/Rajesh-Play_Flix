@@ -114,7 +114,7 @@ async function removeMovieFromWishlist(userId, movieName) {
 document.body.addEventListener("click", async (event) => {
 
   if (event.target.classList.contains("watch-later-btn")) {
-    event.target.style.color ="white";
+    event.target.style.color ="brown";
     const movieName = event.target.getAttribute("data-movie-id");
     const userId = localStorage.getItem("loggedInUserId");
 
@@ -133,7 +133,7 @@ document.body.addEventListener("click", async (event) => {
 
       // Check subscription plan
       if (subscriptionPlan === "free") {
-        alert(" Subcribed user only allow add movies to your wishlist.");
+        alert(" Subcribed user only allow add movies  in wishlist.");
         window.location.href = '../pages/user-detailAndMovies.html';
         return;
       }
@@ -199,7 +199,7 @@ auth.onAuthStateChanged(async (user) => {
       console.warn("User document not found.");
     }
   } else {
-    alert("User not logged in. Redirecting...");
+    console.log("User not logged in. Redirecting...");
   }
 });
 // ---------------------------------------------------------------- 
@@ -309,10 +309,10 @@ document.getElementById("paymentSubmit").addEventListener("click", async (e) => 
       subscriptionPlan: subscriptionPlan.toString()
     });
 
-    alert("Payment information saved successfully!");
-    document.getElementById("paymentForm").reset(); // Ensure the form ID matches
-    fetchWishlist(userId); // Fetch wishlist for eligible users
-    location.reload();
+    alert(`Now you get full access by this Plan ${subscriptionPlan} `);
+    document.getElementById("paymentForm").reset(); //  Ensure the form ID matches
+    fetchWishlist(userId); // Fetch wishlist for eligible users 
+    location.reload(); // Page reload 
 
   } catch (error) {
     console.error("Error upgrading plan:", error.message);
