@@ -26,19 +26,29 @@ let moviesCache = [];
 
 // Fetch movies from Firebase
 const fetchMovies = async () => {
+  // if (moviesCache.length === 0) {
+  //   const moviesCollection = collection(db, "movies");
+  //   const snapshot = await getDocs(moviesCollection);
+  //   moviesCache = snapshot.docs.map((doc) => doc.data());
+  // }
+  // return moviesCache;
   if (moviesCache.length === 0) {
-    const moviesCollection = collection(db, "movies");
-    const snapshot = await getDocs(moviesCollection);
-    moviesCache = snapshot.docs.map((doc) => doc.data());
+    const snapshot = await getDocs(collection(db, "movies"));
+    moviesCache = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })); // Include document ID if needed
   }
   return moviesCache;
+  
 };
 
 // Upload movies from JSON file to Firebase
 (async () => {
   try {
     const response = await fetch("../data/movies.json");
+    if (!response.ok) {
+      throw new Error(`Failed to fetch movies.json: ${response.statusText}`);
+    }
     const data = await response.json();
+    
     const moviesCollection = collection(db, "movies");
 
     for (const movie of data.movies) {
@@ -58,32 +68,51 @@ const fetchMovies = async () => {
 })();
 
 // Render all movies
-const renderAllMovies = (movies) => {
+const renderSlides = (slides) => {
   const carouselMoviesContainer = document.getElementById("movies");
-  carouselMoviesContainer.innerHTML = ""; // Clear container
-
-  let htmlContent = "";
-  movies.forEach((movie) => {
+  slides.forEach((movie) => {
     const buttonLabel = loggedInUserId ? "More Info" : "More info";
     const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
-    const buttonHTML = `<a href="${buttonLink}" class="btn">${buttonLabel}</a>`;
-    htmlContent += `
+    const slideHTML = `
       <div class="swiper-slide">
-        <img src="${movie.image}" alt="${movie.name} poster">
+        <img class="swiper-lazy" src="${movie.image}" alt="${movie.name} poster">
+        <div class="swiper-lazy-preloader"></div>
         <div class="movie-details">
           <h2 class="view"><span>Movie:</span> ${movie.name}</h2>
           <p class="hide"><span>Description:</span> ${movie.description}</p>
-         <div class="buttons">
-              ${buttonHTML}
-             <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
-             </div>
-
+          <div class="buttons">
+            <a href="${buttonLink}" class="btn">${buttonLabel}</a>
+            <i class="fa-regular fa-heart watch-later-btn" data-movie-id="${movie.name}"></i>
+          </div>
         </div>
       </div>`;
+    carouselMoviesContainer.insertAdjacentHTML("beforeend", slideHTML);
   });
-
-  carouselMoviesContainer.innerHTML = htmlContent;
 };
+
+
+
+// Split movies into initial and remaining slides
+const initializeSlides = (movies) => {
+  const movieArray = Array.isArray(movies) ? movies : Object.values(movies);
+
+  // Render initial slides (first 3 movies)
+  const initialSlides = movieArray.slice(0, 3);
+  renderSlides(initialSlides);
+
+  // Initialize Swiper after rendering the initial slides
+  swiper.update();
+
+  // Render remaining slides after a delay
+  setTimeout(() => {
+    const remainingSlides = movieArray.slice(3);
+    renderSlides(remainingSlides);
+    swiper.update(); // Update Swiper to recognize the new slides
+  }, 1000);
+};
+
+// Wait for movies to load and then initialize slides
+
 
 // Render new released movies
 const renderNewReleased = (movies) => {
@@ -163,7 +192,8 @@ const renderByGenres = (movies) => {
              </div>
             </div>`;
 
-          genreContainer.innerHTML += movieHtml;
+            genreContainer.insertAdjacentHTML("beforeend", movieHtml);
+
           renderedMovies.add(movie.name); // Mark as rendered
         }
       });
@@ -174,7 +204,8 @@ const renderByGenres = (movies) => {
 // Fetch movies and render all sections
 fetchMovies()
   .then((movies) => {
-    renderAllMovies(movies);
+    // Initialize all sections after fetching movies
+    initializeSlides(movies);
     renderNewReleased(movies);
     renderTopRated(movies);
     renderByGenres(movies);

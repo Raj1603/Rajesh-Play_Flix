@@ -23,7 +23,6 @@
     />
 
 
-    
     <!-- admin js -->
     <script   type="module"  src="./scripts/admin.js" defer ></script>
 
@@ -221,7 +220,7 @@
       <p>HELPS</p>
       <p>DEVICES</p> -->
 
-      <div>
+      <div class="social-media-links">
         <!-- Youtube -->
         <a
           href="https://www.youtube.com/account"
@@ -251,25 +250,29 @@
       </div>
     </footer>
 
-    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" ></script>
+    
     <script>
-      const swiper = new Swiper(".swiper", {
-        loop: false,
-        autoplay: {
-          delay: 1000,
-          disableOnInteraction: false,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
+     // Initialize Swiper
+const swiper = new Swiper(".swiper", {
+  loop: false,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  lazy: {
+    loadPrevNext: true,
+  },
+});
     </script>
     <script>
 /// JavaScript code
@@ -297,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (otherExpandedItems && otherGenreId !== genreId) {
           otherExpandedItems.classList.add("hidden");
-          otherButton.textContent = "Explore more>>";
+          otherButton.textContent = "Explore more";
           item.style.display = "flex"; // Show other items
         }
       });
@@ -314,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         } else {
           expandedItems.classList.add("hidden");
-          button.textContent = "Explore more>>";
+          button.textContent = "Explore more";
           genreItems.forEach((item) => {
             item.style.display = "flex"; // Show all items
           });

@@ -240,6 +240,15 @@
 }
 .display{display: block;} */
 
+.swiper-slide {
+  display: none;
+}
+
+.swiper-slide-active {
+  display: block;
+}
+
+
       /* Swiper Styles */
       .swiper {
           width: 100%;
@@ -664,6 +673,22 @@
       font-size: xx-large;
    }
 
+/* --------SOCIAL CONNECT LINKS */
+.social-media-links i{
+  background-color: #097be5;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.social-media-links i:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(9, 123, 229, 0.5);
+}
 
 
    /* ---------------------------------------RESULT PAGE STYLES---------------------------------------- */
