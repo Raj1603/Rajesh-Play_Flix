@@ -21,12 +21,16 @@ async function searchMovies(searchQuery) {
 }
 
 // **Dynamic Render Function**
-function renderMovies(results) {
+function renderMovies(results,searchQuery) {
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = "";
 
     if (results.length === 0) {
-        resultsDiv.innerHTML = "<p>No movies found matching your query.</p>";
+        resultsDiv.innerHTML = `<p>No movies found matching your <strong>${searchQuery}</strong>.</p>`;
+        setTimeout(() => {
+            window.location.reload();
+          }, 100); // 1000 milliseconds = 1 second
+          
         return;
     }
 
@@ -39,6 +43,7 @@ function renderMovies(results) {
         movieCard.innerHTML = `
 
             <img src="${movie.image}" alt="${movie.name}" >
+            <p><strong>Title:</strong> ${movie.name || "N/A"}</p>
             <p><strong>Genre:</strong> ${movie.genre || "N/A"}</p>
             
              <div class="buttons">
@@ -47,6 +52,7 @@ function renderMovies(results) {
              </div>
 
         </div>
+        
             
         `;
 
@@ -61,7 +67,11 @@ function renderMovies(results) {
 async function displaySearchResults() {
     const searchQuery = document.getElementById("search-input").value.trim();
     if (!searchQuery) {
-        alert("Please enter a search query.");
+        alert("Please enter a  movie title");
+        setTimeout(() => {
+            window.location.reload();
+          }, 0); // 1000 milliseconds = 1 second
+          
         return;
     }
 
@@ -70,7 +80,7 @@ async function displaySearchResults() {
 
     try {
         const results = await searchMovies(searchQuery);
-        renderMovies(results);
+        renderMovies(results,searchQuery);
     } catch (error) {
         console.error("Error searching movies:", error);
         resultsDiv.innerHTML = "<p>Error fetching results. Please try again later.</p>";
@@ -89,7 +99,8 @@ document.getElementById("search-button").addEventListener("click", () => {
         discovery.style.display = "none";
         searchButton.classList.remove("searching");
         searchButton.innerHTML = "🔍"; // Switch back to search icon
-    } else {
+    } 
+    else {
         // Perform search
         discovery.style.display = "block";
         discovery.style.backgroundColor = "black"; // Optional background styling
@@ -97,6 +108,7 @@ document.getElementById("search-button").addEventListener("click", () => {
         searchButton.innerHTML = "❌"; // Switch to cancel icon
         displaySearchResults();
     }
+
 });
 
 // **Trigger Search on Page Load (Optional)**

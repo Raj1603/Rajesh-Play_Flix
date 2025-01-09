@@ -26,12 +26,7 @@ let moviesCache = [];
 
 // Fetch movies from Firebase
 const fetchMovies = async () => {
-  // if (moviesCache.length === 0) {
-  //   const moviesCollection = collection(db, "movies");
-  //   const snapshot = await getDocs(moviesCollection);
-  //   moviesCache = snapshot.docs.map((doc) => doc.data());
-  // }
-  // return moviesCache;
+
   if (moviesCache.length === 0) {
     const snapshot = await getDocs(collection(db, "movies"));
     moviesCache = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })); // Include document ID if needed
@@ -146,7 +141,7 @@ const renderTopRated = (movies) => {
   const topRatedContainer = document.getElementById("movies-list");
   topRatedContainer.innerHTML = ""; // Clear container
 
-  const topRatedMovies = movies.filter((movie) => parseFloat(movie.rating) >= 5.0);
+  const topRatedMovies = movies.filter((movie) => parseFloat(movie.rating) >= 6.6);
 
   let htmlContent = "";
   topRatedMovies.forEach((movie) => {

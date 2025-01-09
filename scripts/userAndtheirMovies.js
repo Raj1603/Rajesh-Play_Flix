@@ -345,11 +345,22 @@ function ValidatePaymentForm(cardNumber, expirationDate, cvv, nameOnCard) {
   if (!expirationDate || !expirationPattern.test(expirationDate)) {
     document.getElementById("expirationDateError").textContent = expirationDate
     
-      ? "Invalid expiration date." 
+      ? "Please enter a valid expiry date in MM/YY format" 
       : "Expiration Date is required.";
     document.getElementById("expirationDateError").style.display = "block";
     valid = false;
   }
+  else{
+    // check expiration date in the future
+    const [month,year]=expirationDate.split("/").map(Number);  // split and asign the month and year as number using the map function.
+    const userCardExpDate =new Date(2000+year,month-1);   // Implement in Date format .
+    const currentDate=new Date();
+    if(userCardExpDate <=currentDate){
+      alert(`The expiry date must be a future date.`);
+     valid =false; //
+  }
+
+ }
 
   if (!cvv || !cvvPattern.test(cvv)) {
     document.getElementById("cvvError").textContent = cvv
@@ -366,6 +377,15 @@ function ValidatePaymentForm(cardNumber, expirationDate, cvv, nameOnCard) {
     document.getElementById("nameOnCardError").style.display = "block";
     valid = false;
   }
+  else if(nameOnCard.length<3){
+    document.getElementById("nameOnCardError").textContent = "Name on Card should be at least 3 characters long.";
+    document.getElementById("nameOnCardError").style.display = "block";
+  
+  
+    valid = false;
+  }
+
+  
 
   return valid;
 }
