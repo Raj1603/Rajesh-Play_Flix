@@ -14,6 +14,8 @@ import {
 
 import { loggedInUserId } from "./movies.js";
 
+import { fetchMovies } from "./movies.js";
+
 // ************************** Wishlist Functions **************************
 
 // Function to fetch and display the user's wishlist
@@ -55,30 +57,26 @@ moviesSnap.forEach((doc) => {
     if (movies.length > 0) {
       movies.forEach((movie) => {
         const movieCard = document.createElement("div");
-        // movieCard.className = "movie-card";
+        movieCard.className = "wishlist-Card";
 
        movieCard.innerHTML="" // clear existing elements
         movieCard.innerHTML =  `
         <img src="${movie.image}" alt="${movie.name}" >
+        <h3><strong>Title:</strong> ${movie.name || "N/A"}</h3>
         <p><strong>Genre:</strong> ${movie.genre || "N/A"}</p>
+        <div class= "child-hover-text-wishlist">
         ${
             loggedInUserId
-              ? `<a href="./movie-details.html?name=${encodeURIComponent(
-                  movie.name
-                )}" class="btn" >Watch Now</a>`
-              : `<a href="./movie-details.html?name=${encodeURIComponent(
-                  movie.name
-                )}"  >Watch Trailer</a>`
+              ? `<a href="./movie-details.html?name=${encodeURIComponent(movie.name )}" class="btn" >Watch Now</a>`
+              : `<a href="./movie-details.html?name=${encodeURIComponent(movie.name)}"  >Watch Trailer</a>`
           }
-        <button class="remove-btn">Remove</button>
+          
+          <i class="fa-sharp fa-solid fa-heart remove-btn" data-movie-id="${movie.name}" ></i>
+          <span class="child-tooltip-text-wishlist">Remove movie from wishlist</span>
+       </div>   
+       
     `;
 
-        // Add remove functionality             
-        movieCard
-          .querySelector(".remove-btn")
-          .addEventListener("click", () =>
-            removeMovieFromWishlist(userId, movie.name)
-          );
 
         wishlistMoviesList.appendChild(movieCard);
       });
@@ -91,8 +89,9 @@ moviesSnap.forEach((doc) => {
   }
 }
 
+
 // Function to remove a movie from the wishlist______________________________________________________________------------
-async function removeMovieFromWishlist(userId, movieName) {
+const removeMovieFromWishlist = async (userId, movieName) => {
   const userRef = doc(db, "users", userId);
 
   try {
@@ -101,12 +100,41 @@ async function removeMovieFromWishlist(userId, movieName) {
     });
 
     console.log(`Movie "${movieName}" removed from wishlist.`);
-    fetchWishlist(userId); // Refresh wishlist after removal
+
+              //  // After removing, call fetchMovies to refresh the movie data
+              window.location.reload();  //page reload..
+    
+        // After adding, fetch fresh data and re-render the UI
+        //await fetchMovies();  // Fetch fresh movie data and re-render UI
+       // fetchWishlist(userId);  // Refresh the wishlist UI with the updated data
   } catch (error) {
     console.error("Error removing movie:", error);
     alert("Failed to remove movie. Please try again.");
   }
-}
+};
+
+
+
+
+// Use event delegation for dynamically generated "remove-btn" elements
+document.body.addEventListener("click", async (event) => {
+  if (event.target.classList.contains("remove-btn")) {
+    const movieName = event.target.getAttribute("data-movie-id");
+    const userId = localStorage.getItem("loggedInUserId");
+
+    if (!userId) {
+      alert("Please log in to remove movies from your wishlist.");
+      return;
+    }
+
+       
+
+    removeMovieFromWishlist(userId, movieName); // Call the function to remove the movie
+       // Fetch and update the UI after removal
+       // await fetchMovies();  // Fetch fresh movie data and re-render UI
+       //fetchWishlist(userId);  // Refresh the wishlist UI with the updated data
+  }
+});
 
 // ************************** Event Listeners **************************
 
@@ -114,7 +142,7 @@ async function removeMovieFromWishlist(userId, movieName) {
 document.body.addEventListener("click", async (event) => {
 
   if (event.target.classList.contains("watch-later-btn")) {
-    event.target.style.color ="brown";
+    event.target.style.color ="pink";
     const movieName = event.target.getAttribute("data-movie-id");
     const userId = localStorage.getItem("loggedInUserId");
 
@@ -151,8 +179,13 @@ document.body.addEventListener("click", async (event) => {
           wishlist: arrayUnion(movieName),
         });
         console.log(`Movie ${movieName} added to wishlist.`);
-        alert("Movie added to your wishlist!");
-        fetchWishlist(userId); // Refresh wishlist
+      
+        window.location.reload();  //page reload..
+    
+
+        // After adding, fetch fresh data and re-render the UI
+        // await fetchMovies();  // Fetch fresh movie data and re-render UI
+        fetchWishlist(userId);  // Refresh the wishlist UI with the updated data
       } catch (error) {
         console.error("Error adding movie to wishlist:", error);
       }
@@ -295,10 +328,10 @@ document.getElementById("paymentSubmit").addEventListener("click", async (e) => 
   }
 
   const userData = userSnap.data();
-  if (userData.cardNumber === cardNumber) {
-    alert("This card number is already in use.");
-    return;
-  }
+  // if (userData.cardNumber === cardNumber) {
+  //   alert("This card number is already in use.");
+  //   return;
+  // }
 
   try {
     await updateDoc(userRef, {

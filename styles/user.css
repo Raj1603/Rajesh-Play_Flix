@@ -15,18 +15,95 @@
     margin-bottom: 10px;
     color: #0056b3;
   }
+  /* -----------MOVIES CARDS------------------- */
 
-  div {
-    margin-bottom: 30px;
-    padding: 15px;
-    border-radius: 8px;
-    /* background-color: #fff; */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .wishlist-movies-Cards {
+    display: flex; /* Flexbox layout */
+  flex-direction: row;
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  
+  
   }
+  .wishlist-movies-Cards img{
+    width: 100%; /* Full width of the container */
+    height: 15rem; /* Fixed height for all images */
+    object-fit: cover; /* Cover container without distortion */
+    transition: transform 0.3s ease; /* Smooth zoom effect on image */
+    border-radius: 20px;
+  }
+  .wishlist-movies-Cards .wishlist-Card{
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center align all content */
+    width: 15rem; /* Fixed width for all cards */
+    background-color: hsl(20, 3%, 20%); /* Dark gray background */
+    border: 1.5px solid #efaa09; /* Golden border */
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 20px; /* Rounded corners for aesthetics */
+    overflow: hidden; /* Ensure no content spills outside */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Required for absolute positioning of description */
+  
+  }
+  
+
+  
+  
+  
+  /* Button styling */
+  
+ .child-hover-text-wishlist a  {
+  
+    color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #007BFF; /* Blue border */
+  border-radius: 1.5rem; /* Rounded button */
+  background-color: #007BFF; /* Blue background */
+  padding: 0.5rem 1.5rem; /* Space inside the button */
+  margin-top: 10px; /* Spacing below the image */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  }
+  
+  /* Button hover effect */
+  
+  .child-hover-text-wishlist a:hover  {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+  }
+  .child-tooltip-text-wishlist{
+    margin-bottom: 2rem;
+  }
+    
+  .child-tooltip-text-wishlist {
+        
+    visibility: hidden;
+  position: absolute;
+    z-index: 10000;
+    /* width: 15rem; */
+    color: white;
+    background-color: #192733;
+    /* padding: 5px; */
+    text-transform: none;
+  }
+  
+  .child-hover-text-wishlist:hover .child-tooltip-text-wishlist {
+    visibility: visible;
+  
+    text-transform: none;
+    bottom: -34px;
+    left:58%;
+     
+  }
+  
+  /* -----------------------MOVIES CARDS-END */
 
   #subscription-upgrade {
-    max-width: 500px;
-    margin:0 25rem ;
+    max-width: 400px;
+    margin:10rem 35rem ;
     position: absolute;
     z-index: 1000;
   }
@@ -54,20 +131,33 @@
     outline: none;
   }
 
-  button {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
 
-  button:hover {
-    background-color: #0056b3;
-  }
+  /* .videowishlist-btns:nth-last-child(1){
+    text-decoration: none;
+    background-color: #097be5;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+  } */
+  /* .videowishlist-btns:nth-last-child(1):hover{
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(9, 123, 229, 0.5);
+  } */
 
   /* wishlist button */
- .remove-btn {
+
+  div .remove-btn{
+    color: #e50914;
+    font-size:x-large;
+    padding: 10px 20px;
+  }
+ /* .remove-btn {
   max-width: 100px;
     background-color: #ff0400;
     color: white;
@@ -79,16 +169,16 @@
  
   .remove-btn:hover {
     background-color: #201e1d;
-  }
+  } */
 
   /* General Styles */
-/* body {
+body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f9;
   color: #333;
-} */
+}
 
 h1 {
   text-align: center;
@@ -181,7 +271,7 @@ button:hover {
 
 
 
-
+/* ---------------------------subscription upgrade--------------------- */
 .container {
   
   position:absolute;
@@ -191,8 +281,8 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   max-width: 40px;
-  width: 40%;
-  margin: 50%;
+  width: 60%;
+  /* margin: 50%; */
 }
 
 h1 {

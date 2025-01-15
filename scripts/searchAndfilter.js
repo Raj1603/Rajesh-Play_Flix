@@ -29,7 +29,7 @@ function renderMovies(results,searchQuery) {
         resultsDiv.innerHTML = `<p>No movies found matching your <strong>${searchQuery}</strong>.</p>`;
         setTimeout(() => {
             window.location.reload();
-          }, 100); // 1000 milliseconds = 1 second
+          }, 1000); // 1000 milliseconds = 1 second
           
         return;
     }

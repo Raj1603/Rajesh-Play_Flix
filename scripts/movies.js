@@ -1,7 +1,7 @@
 
   // Import Firebase services
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getFirestore, collection, getDocs, addDoc, query, where } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc, query, where,getDoc,doc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -19,52 +19,75 @@ const db = getFirestore(app);
 
 // Get logged-in user ID
 export const loggedInUserId = localStorage.getItem("loggedInUserId");
-console.log(`Logged-in user ID: ${loggedInUserId}`);
 
+
+const userId = loggedInUserId;
+console.log(`Logged-in user ID: ${loggedInUserId}`);
 // Cache movies to prevent redundant fetches
 let moviesCache = [];
+let userCache = null;
+
 
 // Fetch movies from Firebase
-const fetchMovies = async () => {
+export const fetchMovies = async () => {
 
-  if (moviesCache.length === 0) {
+  
+  // Clear the cache if needed to fetch fresh data
+  moviesCache = [];  // Clear the cache for fresh data
+  userCache = null;   // Clear the user cache
+  
+  // Check if the cache is empty
+  if (moviesCache.length === 0 || !userCache) {
+    // Fetch movies data
     const snapshot = await getDocs(collection(db, "movies"));
     moviesCache = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })); // Include document ID if needed
+
+    // Fetch user data only if user is logged in
+    if (userId) {
+      const userDetails = await getDoc(doc(db, "users", userId));
+      userCache = { id: userDetails.id, ...userDetails.data() };
+    } else {
+      // If no user is logged in, use a default empty user object
+      userCache = { wishlist: [] };
+    }
   }
-  return moviesCache;
-  
+
+  return { moviesData: moviesCache, userData: userCache };
 };
 
-// Upload movies from JSON file to Firebase
-(async () => {
-  try {
-    const response = await fetch("../data/movies.json");
-    if (!response.ok) {
-      throw new Error(`Failed to fetch movies.json: ${response.statusText}`);
-    }
-    const data = await response.json();
+
+// // Upload movies from JSON file to Firebase
+// (async () => {
+//   try {
+//     const response = await fetch("../data/movies.json");
+//     if (!response.ok) {
+//       throw new Error(`Failed to fetch movies.json: ${response.statusText}`);
+//     }
+//     const data = await response.json();
     
-    const moviesCollection = collection(db, "movies");
+//     const moviesCollection = collection(db, "movies");
 
-    for (const movie of data.movies) {
-      const duplicateCheckQuery = query(moviesCollection, where("name", "==", movie.name), where("year", "==", movie.year));
-      const duplicateCheckSnapshot = await getDocs(duplicateCheckQuery);
+//     for (const movie of data.movies) {
+//       const duplicateCheckQuery = query(moviesCollection, where("name", "==", movie.name), where("year", "==", movie.year));
+//       const duplicateCheckSnapshot = await getDocs(duplicateCheckQuery);
 
-      if (duplicateCheckSnapshot.empty) {
-        await addDoc(moviesCollection, movie);
-        console.log(`Uploaded: ${movie.name}`);
-      } else {
-        console.log(`Skipped (already exists): ${movie.name}`);
-      }
-    }
-  } catch (err) {
-    console.error("Error uploading movies:", err);
-  }
-})();
+//       if (duplicateCheckSnapshot.empty) {
+//         await addDoc(moviesCollection, movie);
+//         console.log(`Uploaded: ${movie.name}`);
+//       } else {
+//         console.log(`Skipped (already exists): ${movie.name}`);
+//       }
+//     }
+//   } catch (err) {
+//     console.error("Error uploading movies:", err);
+//   }
+// })();
 
 // Render all movies
-const renderSlides = (slides) => {
+const renderSlides = (slides,wishlist) => {
   const carouselMoviesContainer = document.getElementById("movies");
+  
+
   slides.forEach((movie) => {
     const buttonLabel = loggedInUserId ? "More Info" : "More info";
     const buttonLink = `./pages/movie-details.html?name=${encodeURIComponent(movie.name)}`;
@@ -77,7 +100,8 @@ const renderSlides = (slides) => {
           <p class="hide"><span>Description:</span> ${movie.description}</p>
           <div class="buttons">
             <a href="${buttonLink}" class="btn">${buttonLabel}</a>
-            <i class="fa-regular fa-heart watch-later-btn" data-movie-id="${movie.name}"></i>
+             ${wishlist.includes(movie.name) ? `<div class="hover-text"><i class="fa-sharp fa-solid fa-heart remove-btn " data-movie-id="${movie.name}" ></i><span class="tooltip-text">Remove movie from wishlist</span></div>` 
+                 :`<div class="hover-text"><i class="fa-regular fa-heart watch-later-btn" data-movie-id="${movie.name}"></i> <span class="tooltip-text">Add in your wishlist</span><div>`}
           </div>
         </div>
       </div>`;
@@ -86,14 +110,15 @@ const renderSlides = (slides) => {
 };
 
 
-
 // Split movies into initial and remaining slides
-const initializeSlides = (movies) => {
+const initializeSlides = (movies, userData) => {
+  // console.log("User Details inside initializeSlides:", userData);
+  const wishlist = userData.wishlist || []; // Default to empty array
   const movieArray = Array.isArray(movies) ? movies : Object.values(movies);
 
   // Render initial slides (first 3 movies)
   const initialSlides = movieArray.slice(0, 3);
-  renderSlides(initialSlides);
+  renderSlides(initialSlides,wishlist);
 
   // Initialize Swiper after rendering the initial slides
   swiper.update();
@@ -101,16 +126,20 @@ const initializeSlides = (movies) => {
   // Render remaining slides after a delay
   setTimeout(() => {
     const remainingSlides = movieArray.slice(3);
-    renderSlides(remainingSlides);
+    renderSlides(remainingSlides,wishlist);
     swiper.update(); // Update Swiper to recognize the new slides
-  }, 1000);
+  }, 100);
 };
 
 // Wait for movies to load and then initialize slides
 
 
 // Render new released movies
-const renderNewReleased = (movies) => {
+const renderNewReleased = (movies, userData) => {
+  // console.log("User Details inside renderNewReleased:", userData);
+
+  const wishlist = userData.wishlist || []; // Default to empty array
+
   const newReleasedContainer = document.getElementById("newReleasedmovies-list");
   newReleasedContainer.innerHTML = ""; // Clear container
 
@@ -126,9 +155,12 @@ const renderNewReleased = (movies) => {
       <div class="released-item">
         <img src="${movie.image}" alt="${movie.name} poster">
         <h1 class="view">${movie.name}</h1>
-        <div class="buttons">
+          <h2><strong>Rating: </strong>${movie.rating}</h2>
+        
+        <div class="Childbuttons">
               ${buttonHTML}
-             <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
+                    ${wishlist.includes(movie.name) ? `<div class="child-hover-text"><i class="fa-sharp fa-solid fa-heart remove-btn " data-movie-id="${movie.name}" ></i><span class="child-tooltip-text">Remove movie from wishlist</span></div>` 
+                 :` <div class="child-hover-text"><i class="fa-regular fa-heart watch-later-btn  " data-movie-id="${movie.name}" ></i> <span class="child-tooltip-text" >Add in your wishlist</span></div>`}
              </div>
       </div>`;
   });
@@ -137,8 +169,13 @@ const renderNewReleased = (movies) => {
 };
 
 // Render top-rated movies
-const renderTopRated = (movies) => {
+const renderTopRated = (movies, userData) => {
+  // console.log("User Details inside renderTopRated:", userData);
   const topRatedContainer = document.getElementById("movies-list");
+
+  const wishlist = userData.wishlist || []; // Default to empty array
+
+
   topRatedContainer.innerHTML = ""; // Clear container
 
   const topRatedMovies = movies.filter((movie) => parseFloat(movie.rating) >= 6.6);
@@ -152,23 +189,25 @@ const renderTopRated = (movies) => {
       <div class="favorite-item">
         <img src="${movie.image}" alt="${movie.name} poster">
         <h1 class="view">${movie.name}</h1>
-                      <h2><strong>Rating: </strong>${movie.rating}</h2>
-        <div class="buttons">
+         <h2><strong>Rating: </strong>${movie.rating}</h2>
+         <div class="Childbuttons">
               ${buttonHTML}
-             <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
+                    ${wishlist.includes(movie.name) ? `<div class="child-hover-text"><i class="fa-sharp fa-solid fa-heart remove-btn " data-movie-id="${movie.name}" ></i><span class="child-tooltip-text">Remove movie from wishlist</span></div>` 
+                 :` <div class="child-hover-text"><i class="fa-regular fa-heart watch-later-btn  " data-movie-id="${movie.name}" ></i> <span class="child-tooltip-text" >Add in your wishlist</span></div>`}
              </div>
       </div>`;
   });
 
   topRatedContainer.innerHTML = htmlContent;
 };
-
 // Render movies by genres
-const renderByGenres = (movies) => {
+const renderByGenres = (movies, userData) => {
+  // console.log("User Details inside renderByGenres:", userData);
+  const wishlist = userData.wishlist || []; // Default to empty array
   const renderedMovies = new Set(); // Track rendered movies by name
 
   movies.forEach((movie) => {
-    if (parseFloat(movie.rating) >= 8.0) {
+    // if (parseFloat(movie.rating) >= 6.0) {
       movie.genre.forEach((genre) => {
         const genreContainer = document.getElementById(`${genre.toLowerCase()}-container`);
         if (genreContainer && !renderedMovies.has(movie.name)) {
@@ -181,9 +220,10 @@ const renderByGenres = (movies) => {
               <h1 class="view">${movie.name}</h1>
               <h2><strong>Rating: </strong>${movie.rating}</h2>
               <p><span>Genre:</span> ${genre}</p>
-              <div class="buttons">
+            <div class="Childbuttons">
               ${buttonHTML}
-             <i class="fa-regular fa-heart watch-later-btn " data-movie-id="${movie.name}" ></i>
+                    ${wishlist.includes(movie.name) ? `<div class="child-hover-text"><i class="fa-sharp fa-solid fa-heart remove-btn " data-movie-id="${movie.name}" ></i><span class="child-tooltip-text">Remove movie from wishlist</span></div>` 
+                 :` <div class="child-hover-text"><i class="fa-regular fa-heart watch-later-btn  " data-movie-id="${movie.name}" ></i> <span class="child-tooltip-text" >Add in your wishlist</span></div>`}
              </div>
             </div>`;
 
@@ -192,17 +232,17 @@ const renderByGenres = (movies) => {
           renderedMovies.add(movie.name); // Mark as rendered
         }
       });
-    }
+    // }
   });
 };
 
 // Fetch movies and render all sections
 fetchMovies()
-  .then((movies) => {
-    // Initialize all sections after fetching movies
-    initializeSlides(movies);
-    renderNewReleased(movies);
-    renderTopRated(movies);
-    renderByGenres(movies);
+  .then(({ moviesData, userData }) => {
+    // Initialize all sections
+    initializeSlides(moviesData, userData);
+    renderNewReleased(moviesData, userData);
+    renderTopRated(moviesData, userData);
+    renderByGenres(moviesData, userData);
   })
   .catch((err) => console.error("Error rendering movies:", err));

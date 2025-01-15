@@ -29,10 +29,10 @@ onAuthStateChanged(auth, async (user) => {
     try {
       const docRef = doc(db, "users", userId); // Reference to the user's document
       const docSnap = await getDoc(docRef);   // Fetch the document
-      const userDetails = document.getElementById("users");
+      const userDetails = document.getElementById("users");  // Render the userDetails in 'USERS' -HTML -  container 
 
       if (docSnap.exists()) {
-        const userData = docSnap.data();
+        const userData = docSnap.data();  
         console.log("User Data:", userData.Username);
         userDetails.innerHTML = `
           <h3 class="userName fw-bold">${userData.Username}</h3>`;
@@ -67,9 +67,9 @@ onAuthStateChanged(auth, async (user) => {
       .then(() => {
         confirm('Are you sure you want to log out')
         // alert('User logged out successfully!');
-        window.location.href = './index.html';
-        localStorage.clear();
-        console.log("Local storage has been cleared.");
+        window.location.href = './index.html';  // Stay at the same page(INDEX.HTML)
+        localStorage.clear(); // clear the localstorage especially for that --loggedInUserId--
+        console.log("Local storage has been cleared.");  // Final confirmation log result through console..--Admin --  versatility--
       })
       .catch((error) => {
         console.error('Error logging out:', error.message);

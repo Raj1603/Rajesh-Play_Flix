@@ -23,14 +23,15 @@ const db = getFirestore(app);
 // Function to show messages using SweetAlert
 function showMessage(message, divId) {
     Swal.fire({
-        title: divId === "signUpMessage" ? "Sign Up" : "Sign In",
+        title:  (divId === "signUpMessage" || divId === "signInMessage") ? "Sign Up" : "Sign In",
         text: message,
-        icon: divId === "signUpMessage" ? "success" : "error",
-        timer: 4000,
+        icon: (divId === "signUpMessage" || divId === "signInMessage") ? "success" : "error",
+        timer: 5000,
         showConfirmButton: false,
         timerProgressBar: true
     });
 }
+
 
 // Function to clear all error messages
 function clearErrorMessages() {
@@ -41,7 +42,7 @@ function clearErrorMessages() {
     document.getElementById("signInEmailError").textContent = "";
     document.getElementById("signInPasswordError").textContent = "";
 }
-clearErrorMessages();
+// clearErrorMessages();
 
 // Helper function to validate email and password format for sign-up form
 function validateSignUp(email, password, firstName, lastName) {
