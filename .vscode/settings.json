@@ -1,5 +1,4 @@
-{
-    "zencoder.enableRepoIndexing": true,
-    "zencoder.excludeGitIgnoreFromIndexing": true,
-    "liveServer.settings.port": 5501
-}
+// {
+//     "zencoder.enableRepoIndexing": true,
+//     "zencoder.excludeGitIgnoreFromIndexing": true
+// }
