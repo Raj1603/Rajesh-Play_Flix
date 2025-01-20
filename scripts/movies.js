@@ -56,32 +56,32 @@ export const fetchMovies = async () => {
 };
 
 
-// // Upload movies from JSON file to Firebase
-// (async () => {
-//   try {
-//     const response = await fetch("../data/movies.json");
-//     if (!response.ok) {
-//       throw new Error(`Failed to fetch movies.json: ${response.statusText}`);
-//     }
-//     const data = await response.json();
+// Upload movies from JSON file to Firebase
+(async () => {
+  try {
+    const response = await fetch("../data/movies.json");
+    if (!response.ok) {
+      throw new Error(`Failed to fetch movies.json: ${response.statusText}`);
+    }
+    const data = await response.json();
     
-//     const moviesCollection = collection(db, "movies");
+    const moviesCollection = collection(db, "movies");
 
-//     for (const movie of data.movies) {
-//       const duplicateCheckQuery = query(moviesCollection, where("name", "==", movie.name), where("year", "==", movie.year));
-//       const duplicateCheckSnapshot = await getDocs(duplicateCheckQuery);
+    for (const movie of data.movies) {
+      const duplicateCheckQuery = query(moviesCollection, where("name", "==", movie.name), where("year", "==", movie.year));
+      const duplicateCheckSnapshot = await getDocs(duplicateCheckQuery);
 
-//       if (duplicateCheckSnapshot.empty) {
-//         await addDoc(moviesCollection, movie);
-//         console.log(`Uploaded: ${movie.name}`);
-//       } else {
-//         console.log(`Skipped (already exists): ${movie.name}`);
-//       }
-//     }
-//   } catch (err) {
-//     console.error("Error uploading movies:", err);
-//   }
-// })();
+      if (duplicateCheckSnapshot.empty) {
+        await addDoc(moviesCollection, movie);
+        console.log(`Uploaded: ${movie.name}`);
+      } else {
+        console.log(`Skipped (already exists): ${movie.name}`);
+      }
+    }
+  } catch (err) {
+    console.error("Error uploading movies:", err);
+  }
+})();
 
 // Render all movies
 const renderSlides = (slides,wishlist) => {

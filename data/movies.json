@@ -160,7 +160,7 @@
       "rating": "7.8",
       "language": ["English"],
       "duration": "1h 50m",
-      "year": "2023",
+      "year": "2025",
       "details": {
         "cast": ["Florence Pugh", "Timothée Chalamet", "Anya Taylor-Joy"],
         "director": "Jordan Peele",
@@ -179,7 +179,7 @@
       "rating": "8.7",
       "language": ["English"],
       "duration": "2h 20m",
-      "year": "2024",
+      "year": "2025",
       "details": {
         "cast": ["Matt Damon", "Jessica Chastain", "Michael Fassbender"],
         "director": "Denis Villeneuve",
@@ -198,7 +198,7 @@
       "rating": "8.3",
       "language": ["English"],
       "duration": "1h 45m",
-      "year": "2023",
+      "year": "2025",
       "details": {
         "cast": ["Lily James", "Andrew Garfield"],
         "director": "Damien Chazelle",
@@ -217,7 +217,7 @@
       "rating": "7.6",
       "language": ["English"],
       "duration": "1h 30m",
-      "year": "2024",
+      "year": "2025",
       "details": {
         "cast": ["Ryan Reynolds", "Zendaya"],
         "director": "Phil Lord",
@@ -226,44 +226,7 @@
       },
       "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
       "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" 
-    },
-    {
-      "id": 13,
-      "name": "The Art of War",
-      "image": "https://m.media-amazon.com/images/S/pv-target-images/4982fa29048482dc33e612d9b385e63bade586630c84cc6a057e758f9355df95.jpg",
-      "description": "An intense drama revolving around strategies and betrayal in a power-hungry empire.",
-      "genre": ["Historical", "Drama", "Action"],
-      "rating": "8.9",
-      "language": ["English", "Japanese"],
-      "duration": "2h 15m",
-      "year": "2025",
-      "details": {
-        "cast": ["Hiroyuki Sanada", "Ken Watanabe", "Scarlett Johansson"],
-        "director": "Akira Kurosawa",
-        "producer": "Shozo Watanabe",
-        "music": "Joe Hisaishi"
-      },
-      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4" 
-    },
-    {
-      "id": 14,
-      "name": "Galactic Odyssey",
-      "image": "https://images7.alphacoders.com/329/329832.jpg",
-      "description": "A young pilot's journey to unite the galaxies under a single flag.",
-      "genre": ["Sci-Fi", "Action", "Adventure","Comedy"],
-      "rating": "7.9",
-      "language": ["English"],
-      "duration": "2h 5m",
-      "year": "2025",
-      "details": {
-        "cast": ["John Boyega", "Daisy Ridley", "Oscar Isaac"],
-        "director": "J.J. Abrams",
-        "producer": "Kathleen Kennedy",
-        "music": "Michael Giacchino"
-      },
-      "trailer_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      "video_link":"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" 
     }
+   
   ]
 }

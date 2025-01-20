@@ -1,10 +1,10 @@
 
 /* Improved styles */
-  /* body {
+  body {
     font-family: Arial, sans-serif;
     margin: 20px;
    
-  } */
+  }
 
   h1 {
     text-align: center;
@@ -172,12 +172,15 @@
   } */
 
   /* General Styles */
-body {
+body  {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+
   background-color: #f4f4f9;
   color: #333;
+}
+.userDetailsSection{
+  margin: 20px;
+  /* padding: 20% auto; */
 }
 
 h1 {
@@ -271,7 +274,7 @@ button:hover {
 
 
 
-/* ---------------------------subscription upgrade--------------------- */
+/* ---------------------------subscription upgrade---------------------------------- */
 .container {
   
   position:absolute;
