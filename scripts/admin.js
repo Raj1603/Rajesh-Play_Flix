@@ -77,3 +77,15 @@ onAuthStateChanged(auth, async (user) => {
   });
 });
 
+// loader function
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  const content = document.getElementById('content');
+
+  // Hide the loader after a delay (optional)
+  setTimeout(() => {
+    loader.style.display = 'none'; // Hide the loader
+    content.style.display = 'block'; // Show the main content
+  }, 2000); // Adjust delay as needed
+});
+

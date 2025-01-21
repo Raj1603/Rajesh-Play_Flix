@@ -103,6 +103,17 @@ const removeMovieFromWishlist = async (userId, movieName) => {
 
               //  // After removing, call fetchMovies to refresh the movie data
               window.location.reload();  //page reload..
+              
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  const content = document.getElementById('content');
+
+  // Hide the loader after a delay (optional)
+  setTimeout(() => {
+    loader.style.display = 'none'; // Hide the loader
+    content.style.display = 'block'; // Show the main content
+  }, 2000); // Adjust delay as needed
+});
     
         // After adding, fetch fresh data and re-render the UI
         //await fetchMovies();  // Fetch fresh movie data and re-render UI
@@ -180,7 +191,7 @@ document.body.addEventListener("click", async (event) => {
         });
         console.log(`Movie ${movieName} added to wishlist.`);
       
-        window.location.reload();  //page reload..
+        window.location.reload();  
     
 
         // After adding, fetch fresh data and re-render the UI

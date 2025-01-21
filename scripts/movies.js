@@ -154,13 +154,18 @@ const renderNewReleased = (movies, userData) => {
     htmlContent += `
       <div class="released-item">
         <img src="${movie.image}" alt="${movie.name} poster">
+        <div class=Movie-Card-Details>
+        
         <h1 class="view">${movie.name}</h1>
-          <h2><strong>Rating: </strong>${movie.rating}</h2>
+        
+
         
         <div class="Childbuttons">
               ${buttonHTML}
                     ${wishlist.includes(movie.name) ? `<div class="child-hover-text"><i class="fa-sharp fa-solid fa-heart remove-btn " data-movie-id="${movie.name}" ></i><span class="child-tooltip-text">Remove movie from wishlist</span></div>` 
                  :` <div class="child-hover-text"><i class="fa-regular fa-heart watch-later-btn  " data-movie-id="${movie.name}" ></i> <span class="child-tooltip-text" >Add in your wishlist</span></div>`}
+             
+                 </div>
              </div>
       </div>`;
   });

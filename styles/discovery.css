@@ -420,7 +420,7 @@ position: absolute;
 
       .genre{
           text-align: center;
-          margin: 20px;
+          margin: 100px;
          
       }
       .genre h3 {
@@ -499,7 +499,7 @@ position: absolute;
   background: #ff5722; /* Button color */
   color: white;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.1em;
   border: none;
   border-radius: 4px;
   transition: background 0.3s ease;
@@ -581,7 +581,7 @@ position: absolute;
 
 #favorite {
   text-align: center;
-  margin: 20px;
+  margin:100px 0px;
 }
 
 #favorite h3 {
@@ -710,6 +710,14 @@ position: absolute;
           object-fit: cover; /* Cover container without distortion */
           transition: transform 0.3s ease; /* Smooth zoom effect on image */
           border-radius: 20px;
+      }
+      .Movie-Card-Details{
+        display: flex;
+        flex-direction: column;
+        
+        height: 200px;
+        justify-content:space-evenly;
+        
       }
       
      
@@ -916,3 +924,38 @@ position: absolute;
 
   
  
+
+
+  /* ------------LOADER STYLES-------- */
+  
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; 
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.9);
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
