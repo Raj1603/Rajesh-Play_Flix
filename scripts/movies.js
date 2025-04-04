@@ -1,7 +1,7 @@
 
   // Import Firebase services
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getFirestore, collection, getDocs, addDoc, query, where,getDoc,doc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc, query, where,getDoc,doc,updateDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -251,3 +251,4 @@ fetchMovies()
     renderByGenres(moviesData, userData);
   })
   .catch((err) => console.error("Error rendering movies:", err));
+

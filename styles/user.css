@@ -102,8 +102,8 @@
   /* -----------------------MOVIES CARDS-END */
 
   #subscription-upgrade {
-    max-width: 400px;
-    margin:10rem 35rem ;
+    max-width: 500px;
+    margin:5rem 25rem ;
     position: absolute;
     z-index: 1000;
   }

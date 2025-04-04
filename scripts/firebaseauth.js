@@ -21,16 +21,27 @@ const auth = getAuth();
 const db = getFirestore(app);
 
 // Function to show messages using SweetAlert
-function showMessage(message, divId) {
+// function showMessage(message, divId) {
+//     Swal.fire({
+//         title:  (divId === "signUpMessage" || divId === "signInMessage") ? "Sign Up" : "Sign In",
+//         text: message,
+//         icon: (divId === "signUpMessage" || divId === "signInMessage") ? "success" : "error",
+//         timer: 2000,
+//         showConfirmButton: true,
+//         timerProgressBar: true
+//     });
+// }
+function showMessage(message, divId, isError = false) {
     Swal.fire({
-        title:  (divId === "signUpMessage" || divId === "signInMessage") ? "Sign Up" : "Sign In",
+        title: isError ? "Error" : (divId === "signUpMessage" || divId === "signInMessage") ? "Success" : "Info",
         text: message,
-        icon: (divId === "signUpMessage" || divId === "signInMessage") ? "success" : "error",
+        icon: isError ? "error" : "success",
         timer: 5000,
-        showConfirmButton: false,
+        showConfirmButton: true,
         timerProgressBar: true
     });
 }
+
 
 
 // Function to clear all error messages
@@ -159,7 +170,7 @@ document.getElementById("submitSignUp").addEventListener("click", (event) => {
                 })
                 .catch((error) => {
                     console.error("Error writing document:", error);
-                    showMessage("Error saving user data. Please try again.", "signUpMessage");
+                    showMessage("Error saving user data. Please try again.", true);
                    
                 });
         })
@@ -169,7 +180,7 @@ document.getElementById("submitSignUp").addEventListener("click", (event) => {
                 document.getElementById("emailError").textContent = "Email Address Already Exists!";
                 document.getElementById("emailError").classList.add("error");
             } else {
-                showMessage("Unable to create user. Please try again.", "signUpMessage");
+                showMessage("Unable to create user. Please try again.", true);
             }
         });
 });
@@ -194,13 +205,14 @@ document.getElementById("submitSignIn").addEventListener("click", (event) => {
         })
         .catch((error) => {
             const errorCode = error.code;
-            if (errorCode === "auth/wrong-password" || errorCode === "auth/user-not-found") {
-                document.getElementById("signInMessage").textContent = "Incorrect Email or Password.";
-                showMessage("Incorrect Email or Password.", "signInMessage");
+            // || errorCode === "auth/user-not-found       Email or "
+            if (errorCode === "auth/wrong-password" ) {
+                document.getElementById("signInMessage").textContent = "Incorrect Password.";
+                showMessage("Incorrect Email or Password.", "signInMessage",true);
                 
                 console.log("Wrong password")
             } else {
-                showMessage("Account does not exist", "signInMessage");
+                showMessage("Account does not exist", "signInMessage",true);
                 console.log("Account does not exist")
             }
         });
